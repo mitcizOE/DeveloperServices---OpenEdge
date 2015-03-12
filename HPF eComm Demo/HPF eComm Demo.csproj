@@ -59,6 +59,11 @@
   <ItemGroup>
     <Content Include="App_Data\CustomerDB.xml" />
     <Content Include="CheckAliasCreateTransaction.aspx" />
+    <Content Include="css\914.css" />
+    <Content Include="dropdown2.css" />
+    <Content Include="HomeExtraSpace.aspx" />
+    <Content Include="HomeStyle.css" />
+    <Content Include="index.html" />
     <Content Include="success.aspx" />
     <Content Include="AliasCreateTransaction.aspx" />
     <Content Include="CreditSaleTransaction.aspx" />
@@ -75,6 +80,13 @@
     </Compile>
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HomeExtraSpace.aspx.cs">
+      <DependentUpon>HomeExtraSpace.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomeExtraSpace.aspx.designer.cs">
+      <DependentUpon>HomeExtraSpace.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">

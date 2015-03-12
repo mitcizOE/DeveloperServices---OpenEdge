@@ -1,0 +1,51 @@
+﻿/* CSS Menu available at http://www.cssplay.co.uk/menus/dd_valid.html */
+
+/* common styling */
+/*.dd { position:relative; z-index:100; white-space:nowrap; }*/
+.dd { z-index:100; position:absolute; width:739px; right:0; }
+.dd ul li a, .dd ul li a:visited { display:block; text-decoration:none; color:#fff; text-align:left; font-size:14px; font-weight:bold; line-height:42px; }
+
+.dd ul { padding:0; margin:0; list-style: none;z-index:99; }
+.dd ul li { float:left; position:relative; z-index:99; }
+.dd ul li ul { display: none; z-index:99; }
+
+/* specific to non IE browsers */
+.dd ul li:hover a { color:#00703c; }
+.dd ul li:hover ul { display:block; position:absolute; top:43px; left:0; }
+.dd ul li:hover ul li { border-bottom:1px solid #e8e8e8; width:100%; }
+.dd ul li:hover ul li:last-child { border-bottom:0; }
+.dd ul li:hover ul li a.hide { color:#727272; }
+.dd ul li:hover ul li:hover a.hide { color:#727272; }
+.dd ul li:hover ul li ul { display: none; }
+.dd ul li:hover ul li a { display:block; color:#727272; font-size:12px; text-transform:none; line-height:32px; }
+.dd ul li:hover ul li a:hover { color:#67b200; }
+.dd ul li:hover ul li:hover ul { display:block; position:absolute; left:105px; top:0; }
+.dd ul li:hover ul li:hover ul.left { left:-105px; }
+ul.dd li *.sub br { line-height:0px; }
+ul.dd li *.sub { color:#727272; margin:-1px 0px 0px -2px; padding:8px 15px 5px; border-style:solid; border-width:0px 2px 2px 2px; border-color:#499601; background-color:#ffffff; white-space:nowrap; -webkit-box-shadow: 0px 3px 9px rgba(50, 50, 50, 0.75); -moz-box-shadow: 0px 3px 9px rgba(50, 50, 50, 0.75); box-shadow: 0px 3px 9px rgba(50, 50, 50, 0.75); }
+ul.dd *.dir { color:#000; padding:0px 24px 0px; border-style:solid; border-top:0; border-bottom:0; border-left:2px solid #7cbc29; border-right:2px solid #4b8a00; }
+
+
+.imgDd { margin:10px 0px 0px 14px; }
+.imgDd ul li a, .imgDd ul li a:visited { display:block; text-decoration:none; color:#fff; background-color:#00703c; border-left:1px solid #00703c; line-height:10px; text-align:center; vertical-align:middle; width:45px; margin:0px 11px 0px 0px; padding:1px 5px 0px; font-size:10px; font-weight:bold; }
+
+.imgDd ul { padding:0; margin:0; list-style: none; }
+.imgDd ul li { float:left; position:relative; }
+.imgDd ul li ul { display: none; }
+
+/* specific to non IE browsers */
+.imgDd ul li:hover a { border-left:1px solid #222; background-color:#57a102; color:#fff; }
+.imgDd ul li:hover ul { display:block; position:absolute; left:0; background-color:#fff; padding:0px; margin:0px; }
+.imgDd ul li:hover ul li a.hide { color:#fff; }
+.imgDd ul li:hover ul li:hover a.hide { color:#fff;}
+.imgDd ul li:hover ul li ul { display: none;}
+.imgDd ul li:hover ul li a { display:block; color:#000; background-color:#fff; height:18px; }
+.imgDd ul li:hover ul li a:hover { color:#000;}
+.imgDd ul li:hover ul li:hover ul { display:block; position:absolute; left:105px; }
+.imgDd ul li:hover ul li:hover ul.left { left:-105px; }
+
+ul.imgDd li *.sub { color:#fff; margin:0px; padding:0px; background-color:#57a202; }
+ul.imgDd *.dir { color:#000; padding:0px; margin:0px; }
+.imgDd .sub li { padding:0px; margin:0px; height:13px; }
+.imgDd .sub li a { padding-top:2px; height:18px;text-align:left;  }
+.imgDd .dir a { height:22px; }

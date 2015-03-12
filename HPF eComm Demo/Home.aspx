@@ -13,12 +13,15 @@
                 width: 491px;
             }
             .auto-style2 {
-                width: 47%;
+                width: 100%;
                 background-color: #D5E8C0;
             }
             .newStyle1 {
                 font-family: Calibri;
             }
+            
+
+
         </style>
 </head>
 <body>
