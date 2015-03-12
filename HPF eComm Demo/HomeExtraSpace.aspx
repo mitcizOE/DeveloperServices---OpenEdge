@@ -18,7 +18,7 @@
     <div id="wrapper">
         <div id="headerwrap">
         <div id="header">
-            <img src="./logo_ess2.png"
+            <img src="https://www.extraspace.com/images/layout/logo_ess2.png"
         </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </div>
         <div id="navigationwrap">
