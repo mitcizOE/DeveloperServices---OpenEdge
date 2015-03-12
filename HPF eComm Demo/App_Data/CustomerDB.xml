@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<CustomerDB>
+  <Customer Name="Placeholder">
+    <MaskedCardNum></MaskedCardNum>
+    <Alias></Alias>
+    <DateCreated></DateCreated>
+    <Address></Address>
+    <ZipCode></ZipCode>
+  </Customer>
+</CustomerDB>
