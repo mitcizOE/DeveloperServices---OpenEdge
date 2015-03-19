@@ -21,6 +21,8 @@
             <img src="https://www.extraspace.com/images/layout/logo_ess2.png"
         </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </div>
+
+        <!--
         <div id="navigationwrap">
         <div id="navigation">
             <p>This is the Menu</p>
@@ -37,13 +39,14 @@
             <p>&nbsp;</p>
             <p>&nbsp;</p>
         </div>
-        </div>
+        </div>*/
         <div id="contentwrap">
+            -->
         <div id="content">
              <iframe id="hpfIFrame" runat="server" scrolling="yes" aria-live="assertive" aria-readonly="False" style="border-style: hidden"></iframe>
         </div>
         </div>
-    </div>
+    <!--</div>-->
 </body>
 </html>
 

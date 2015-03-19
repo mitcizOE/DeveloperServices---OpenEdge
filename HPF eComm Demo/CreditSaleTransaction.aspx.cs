@@ -40,15 +40,15 @@ namespace HPF_eComm_Demo
 
                 //Start XWeb credentials
                 xmlWriter.WriteStartElement("XWebID");
-                xmlWriter.WriteString("800000001377");
+                xmlWriter.WriteString("800000001844");
                 xmlWriter.WriteEndElement();
 
                 xmlWriter.WriteStartElement("TerminalID");
-                xmlWriter.WriteString("80021450");
+                xmlWriter.WriteString("80022706");
                 xmlWriter.WriteEndElement();
 
                 xmlWriter.WriteStartElement("AuthKey");
-                xmlWriter.WriteString("swUleKfQRuEm6VACYvYkyIuyXQC7jZDv");
+                xmlWriter.WriteString("zWCvjz8pZcy10t5QWHsex7jRhwl992jd");
                 xmlWriter.WriteEndElement();
                 //End XWeb credentials
 
