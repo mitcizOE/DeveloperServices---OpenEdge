@@ -59,8 +59,11 @@
   <ItemGroup>
     <Content Include="App_Data\CustomerDB.xml" />
     <Content Include="CheckAliasCreateTransaction.aspx" />
+    <Content Include="CreditSaleEMVTransaction.aspx" />
     <Content Include="css\914.css" />
     <Content Include="dropdown2.css" />
+    <Content Include="HomeEMV.aspx" />
+    <Content Include="HomeExtraSpaceEMV.aspx" />
     <Content Include="HomeExtraSpace.aspx" />
     <Content Include="HomeStyle.css" />
     <Content Include="index.html" />
@@ -78,8 +81,29 @@
     <Compile Include="CheckAliasCreateTransaction.aspx.designer.cs">
       <DependentUpon>CheckAliasCreateTransaction.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CreditSaleEMVTransaction.aspx.cs">
+      <DependentUpon>CreditSaleEMVTransaction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreditSaleEMVTransaction.aspx.designer.cs">
+      <DependentUpon>CreditSaleEMVTransaction.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HomeEMV.aspx.cs">
+      <DependentUpon>HomeEMV.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomeEMV.aspx.designer.cs">
+      <DependentUpon>HomeEMV.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HomeExtraSpaceEMV.aspx.cs">
+      <DependentUpon>HomeExtraSpaceEMV.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomeExtraSpaceEMV.aspx.designer.cs">
+      <DependentUpon>HomeExtraSpaceEMV.aspx</DependentUpon>
     </Compile>
     <Compile Include="HomeExtraSpace.aspx.cs">
       <DependentUpon>HomeExtraSpace.aspx</DependentUpon>
