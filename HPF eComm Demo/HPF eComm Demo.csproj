@@ -63,6 +63,7 @@
     <Content Include="css\914.css" />
     <Content Include="dropdown2.css" />
     <Content Include="HomeEMV.aspx" />
+    <Content Include="LightspeedHome.aspx" />
     <Content Include="HomeExtraSpaceEMV.aspx" />
     <Content Include="HomeExtraSpace.aspx" />
     <Content Include="HomeStyle.css" />
@@ -97,6 +98,13 @@
     </Compile>
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LightspeedHome.aspx.cs">
+      <DependentUpon>LightspeedHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LightspeedHome.aspx.designer.cs">
+      <DependentUpon>LightspeedHome.aspx</DependentUpon>
     </Compile>
     <Compile Include="HomeExtraSpaceEMV.aspx.cs">
       <DependentUpon>HomeExtraSpaceEMV.aspx</DependentUpon>
