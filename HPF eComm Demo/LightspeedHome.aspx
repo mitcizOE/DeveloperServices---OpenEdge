@@ -18,7 +18,7 @@
     <div id="wrapper">
         <div id="headerwrap">
         <div id="header">
-            <img src="http://i.imgur.com/8V3ttGp.png">
+            <img src="https://www.xchargedeveloper.com/Portals/3/lightspeed.png">
         </div style="height: 97px; width: 384px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </div>
 
