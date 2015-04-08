@@ -18,7 +18,7 @@
     <div id="wrapper">
         <div id="headerwrap">
         <div id="header">
-            <img src="https://www.extraspace.com/images/layout/logo_ess2.png"
+            <img src="https://www.xchargedeveloper.com/Portals/3/lightspeed.png"
         </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </div>
 
