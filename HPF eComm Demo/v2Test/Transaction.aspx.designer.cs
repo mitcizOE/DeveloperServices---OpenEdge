@@ -31,6 +31,15 @@ namespace HPF_eComm_Demo {
         protected global::System.Web.UI.HtmlControls.HtmlForm demoForm;
         
         /// <summary>
+        /// Panel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Panel1;
+        
+        /// <summary>
         /// creditSaleTransaction control.
         /// </summary>
         /// <remarks>
@@ -47,6 +56,42 @@ namespace HPF_eComm_Demo {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button creditReturnTransaction;
+        
+        /// <summary>
+        /// emvCreditSaleTransaction control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button emvCreditSaleTransaction;
+        
+        /// <summary>
+        /// emvCreditReturnTransaction control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button emvCreditReturnTransaction;
+        
+        /// <summary>
+        /// checkSaleTransaction control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button checkSaleTransaction;
+        
+        /// <summary>
+        /// checkCreditTransaction control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button checkCreditTransaction;
         
         /// <summary>
         /// debitSaleTransaction control.

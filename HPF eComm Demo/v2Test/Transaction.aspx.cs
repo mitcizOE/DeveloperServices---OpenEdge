@@ -14,7 +14,7 @@ namespace HPF_eComm_Demo
     public partial class Transaction : System.Web.UI.Page
     {
         private enum callType { otk, result };
-        public enum TranType { CreditSale, DebitSale, CreditReturn, DebitReturn, AliasCreate, ResultsCall };
+        public enum TranType { CreditSale, DebitSale, CreditReturn, DebitReturn, AliasCreate, ResultsCall, CheckAlias, CreditEMV, CreditEMVReturn, CheckSale, CheckCredit };
         private static string gatewayURL = "https://test.t3secure.net/x-chargeweb.dll";
         private static string hpfURL = "https://integrator.t3secure.net/hpf/hpf.aspx";
 
@@ -38,40 +38,103 @@ namespace HPF_eComm_Demo
                 xmlWriter.WriteStartDocument();
                 //StartRoot element
                 xmlWriter.WriteStartElement("GatewayRequest");
+                
+                // Standard XWeb Creds
+                if (type == TranType.CreditSale || type == TranType.CreditReturn || type == TranType.AliasCreate)
+                {
+                    //Start XWeb credentials
+                    xmlWriter.WriteStartElement("XWebID");
+                    xmlWriter.WriteString("800000001844");
+                    xmlWriter.WriteEndElement();
 
-                //Start XWeb credentials
-                xmlWriter.WriteStartElement("XWebID");
-                xmlWriter.WriteString("800000001844");
-                xmlWriter.WriteEndElement();
+                    xmlWriter.WriteStartElement("TerminalID");
+                    xmlWriter.WriteString("80022706");
+                    xmlWriter.WriteEndElement();
 
-                xmlWriter.WriteStartElement("TerminalID");
-                xmlWriter.WriteString("80022706");
-                xmlWriter.WriteEndElement();
+                    xmlWriter.WriteStartElement("AuthKey");
+                    xmlWriter.WriteString("zWCvjz8pZcy10t5QWHsex7jRhwl992jd");
+                    xmlWriter.WriteEndElement();
+                    //End XWeb credentials
 
-                xmlWriter.WriteStartElement("AuthKey");
-                xmlWriter.WriteString("zWCvjz8pZcy10t5QWHsex7jRhwl992jd");
-                xmlWriter.WriteEndElement();
-                //End XWeb credentials
+                    xmlWriter.WriteStartElement("Industry");
+                    xmlWriter.WriteString("RETAIL");
+                    xmlWriter.WriteEndElement();
+                }
+                //Credit EMV Creds (PG)
+                if (type == TranType.CreditEMV || type == TranType.CreditEMVReturn)
+                {
+                    //Start XWeb credentials
+                    xmlWriter.WriteStartElement("XWebID");
+                    xmlWriter.WriteString("800000001694");
+                    xmlWriter.WriteEndElement();
 
-                xmlWriter.WriteStartElement("Industry");
-                xmlWriter.WriteString("RETAIL");
-                xmlWriter.WriteEndElement();
+                    xmlWriter.WriteStartElement("TerminalID");
+                    xmlWriter.WriteString("80022125");
+                    xmlWriter.WriteEndElement();
+
+                    xmlWriter.WriteStartElement("AuthKey");
+                    xmlWriter.WriteString("t6Gr99v6eo8xfLFSzYieujuPLkkDfbHI");
+                    xmlWriter.WriteEndElement();
+                    //End XWeb credentials
+
+                    xmlWriter.WriteStartElement("Industry");
+                    xmlWriter.WriteString("RETAIL");
+                    xmlWriter.WriteEndElement();
+                }
+                //Debit EMV Creds (PG)
+                if (type == TranType.DebitSale || type == TranType.DebitReturn)
+                {
+                    //Start XWeb credentials
+                    xmlWriter.WriteStartElement("XWebID");
+                    xmlWriter.WriteString("800000001694");
+                    xmlWriter.WriteEndElement();
+
+                    xmlWriter.WriteStartElement("TerminalID");
+                    xmlWriter.WriteString("80022120");
+                    xmlWriter.WriteEndElement();
+
+                    xmlWriter.WriteStartElement("AuthKey");
+                    xmlWriter.WriteString("NAFV4pikCkOydaS2SXZbArEdcc2xXlkj");
+                    xmlWriter.WriteEndElement();
+                    //End XWeb credentials
+
+                    xmlWriter.WriteStartElement("Industry");
+                    xmlWriter.WriteString("RETAIL");
+                    xmlWriter.WriteEndElement();
+                }
+                //Check Creds
+                if (type == TranType.CheckAlias || type == TranType.CheckSale || type == TranType.CheckCredit)
+                {
+                    //Start XWeb credentials
+                    xmlWriter.WriteStartElement("XWebID");
+                    xmlWriter.WriteString("800000001844");
+                    xmlWriter.WriteEndElement();
+
+                    xmlWriter.WriteStartElement("TerminalID");
+                    xmlWriter.WriteString("80022690");
+                    xmlWriter.WriteEndElement();
+
+                    xmlWriter.WriteStartElement("AuthKey");
+                    xmlWriter.WriteString("XisLfXu2QVDYuBSt4k4r9go7ZELxRlie");
+                    xmlWriter.WriteEndElement();
+                    //End XWeb credentials
+                }
 
                 xmlWriter.WriteStartElement("SpecVersion");
-                xmlWriter.WriteString("XWebSecure3.4");
+                xmlWriter.WriteString("XWebSecure3.5");
                 xmlWriter.WriteEndElement();
 
                 //Transaction Type Writer
                 if (reason == callType.otk)
                 {
-                    if (type == TranType.CreditSale)
+                    if (type == TranType.CreditSale || type == TranType.CreditEMV)
                     {
                         xmlWriter.WriteStartElement("TransactionType");
                         xmlWriter.WriteString("CreditSaleTransaction");
                         xmlWriter.WriteEndElement();
                     }
 
-                    if (type == TranType.CreditReturn)
+                    if (type == TranType.CreditReturn || type == TranType.CreditEMVReturn)
                     {
                         xmlWriter.WriteStartElement("TransactionType");
                         xmlWriter.WriteString("CreditReturnTransaction");
@@ -97,17 +160,51 @@ namespace HPF_eComm_Demo
                         xmlWriter.WriteString("AliasCreateTransaction");
                         xmlWriter.WriteEndElement();
                     }
-                    
-                    if (type != TranType.AliasCreate)
+                    if (type == TranType.CheckSale)
                     {
-                        //Flags Transaction to return Alias.
-                        xmlWriter.WriteStartElement("CreateAlias");
-                        xmlWriter.WriteString("TRUE");
+                        xmlWriter.WriteStartElement("TransactionType");
+                        xmlWriter.WriteString("CheckSaleTransaction");
                         xmlWriter.WriteEndElement();
 
-                        xmlWriter.WriteStartElement("DuplicateMode");
-                        xmlWriter.WriteString("CHECKING_OFF");
+                        xmlWriter.WriteStartElement("EntryClass");
+                        xmlWriter.WriteString("WEB");
                         xmlWriter.WriteEndElement();
+                    }
+                    if (type == TranType.CheckCredit)
+                    {
+                        xmlWriter.WriteStartElement("TransactionType");
+                        xmlWriter.WriteString("CheckCreditTransaction");
+                        xmlWriter.WriteEndElement();
+
+                        xmlWriter.WriteStartElement("EntryClass");
+                        xmlWriter.WriteString("PPD");
+                        xmlWriter.WriteEndElement();
+                    }
+                    if (type == TranType.CheckAlias)
+                    {
+                        xmlWriter.WriteStartElement("TransactionType");
+                        xmlWriter.WriteString("CheckAliasCreateTransaction");
+                        xmlWriter.WriteEndElement();
+                    }
+                    
+                    //Flag to Create Alias for Transactiosn that Support CreateAlias = TRUE
+                    if (type != TranType.AliasCreate && type != TranType.DebitSale && type != TranType.DebitReturn && type != TranType.CheckAlias)
+                    {
+                        if (type != TranType.CheckCredit && type != TranType.CheckSale)
+                        {
+                            //Flags Transaction to return Alias.
+                            xmlWriter.WriteStartElement("CreateAlias");
+                            xmlWriter.WriteString("TRUE");
+                            xmlWriter.WriteEndElement();
+
+                            xmlWriter.WriteStartElement("DuplicateMode");
+                            xmlWriter.WriteString("CHECKING_OFF");
+                            xmlWriter.WriteEndElement();
+
+                            xmlWriter.WriteStartElement("ShowReceipt");
+                            xmlWriter.WriteString("TRUE");
+                            xmlWriter.WriteEndElement();
+                        }
 
                         xmlWriter.WriteStartElement("Amount");
                         xmlWriter.WriteString("1.00");
@@ -117,9 +214,6 @@ namespace HPF_eComm_Demo
                         xmlWriter.WriteString("TRUE");
                         xmlWriter.WriteEndElement();
 
-                        xmlWriter.WriteStartElement("ShowReceipt");
-                        xmlWriter.WriteString("TRUE");
-                        xmlWriter.WriteEndElement();
                     }
                  
                 }
@@ -348,12 +442,16 @@ namespace HPF_eComm_Demo
             result = callGateway(request);
             resultsXML.Text = result;
 
-            creditSaleTransaction.BackColor = System.Drawing.Color.SteelBlue;
-            creditReturnTransaction.BackColor = System.Drawing.Color.DarkGray;
-            debitSaleTransaction.BackColor = System.Drawing.Color.DarkGray;
-            debitReturnTransaction.BackColor = System.Drawing.Color.DarkGray;
             createAliasTransaction.BackColor = System.Drawing.Color.DarkGray;
+            creditSaleTransaction.BackColor = System.Drawing.Color.SteelBlue;
+            debitReturnTransaction.BackColor = System.Drawing.Color.DarkGray;
+            debitSaleTransaction.BackColor = System.Drawing.Color.DarkGray;
+            creditReturnTransaction.BackColor = System.Drawing.Color.DarkGray;
             checkAliasCreateTransaction.BackColor = System.Drawing.Color.DarkGray;
+            emvCreditSaleTransaction.BackColor = System.Drawing.Color.DarkGray;
+            emvCreditReturnTransaction.BackColor = System.Drawing.Color.DarkGray;
+            checkSaleTransaction.BackColor = System.Drawing.Color.DarkGray;
+            checkCreditTransaction.BackColor = System.Drawing.Color.DarkGray;
 
             //Parse the OTK from the OTK request.
             otk = parseXML(result, callType.otk);
@@ -379,12 +477,16 @@ namespace HPF_eComm_Demo
             result = callGateway(request);
             resultsXML.Text = result;
 
-            creditReturnTransaction.BackColor = System.Drawing.Color.SteelBlue;
-            creditSaleTransaction.BackColor = System.Drawing.Color.DarkGray;
-            debitSaleTransaction.BackColor = System.Drawing.Color.DarkGray;
-            debitReturnTransaction.BackColor = System.Drawing.Color.DarkGray;
             createAliasTransaction.BackColor = System.Drawing.Color.DarkGray;
+            creditSaleTransaction.BackColor = System.Drawing.Color.DarkGray;
+            debitReturnTransaction.BackColor = System.Drawing.Color.DarkGray;
+            debitSaleTransaction.BackColor = System.Drawing.Color.DarkGray;
+            creditReturnTransaction.BackColor = System.Drawing.Color.SteelBlue;
             checkAliasCreateTransaction.BackColor = System.Drawing.Color.DarkGray;
+            emvCreditSaleTransaction.BackColor = System.Drawing.Color.DarkGray;
+            emvCreditReturnTransaction.BackColor = System.Drawing.Color.DarkGray;
+            checkSaleTransaction.BackColor = System.Drawing.Color.DarkGray;
+            checkCreditTransaction.BackColor = System.Drawing.Color.DarkGray;
 
             //Parse the OTK from the OTK request.
             otk = parseXML(result, callType.otk);
@@ -409,12 +511,16 @@ namespace HPF_eComm_Demo
             result = callGateway(request);
             resultsXML.Text = result;
 
-            debitSaleTransaction.BackColor = System.Drawing.Color.SteelBlue;
-            creditSaleTransaction.BackColor = System.Drawing.Color.DarkGray;
-            creditReturnTransaction.BackColor = System.Drawing.Color.DarkGray;
-            debitReturnTransaction.BackColor = System.Drawing.Color.DarkGray;
             createAliasTransaction.BackColor = System.Drawing.Color.DarkGray;
+            creditSaleTransaction.BackColor = System.Drawing.Color.DarkGray;
+            debitReturnTransaction.BackColor = System.Drawing.Color.DarkGray;
+            debitSaleTransaction.BackColor = System.Drawing.Color.SteelBlue;
+            creditReturnTransaction.BackColor = System.Drawing.Color.DarkGray;
             checkAliasCreateTransaction.BackColor = System.Drawing.Color.DarkGray;
+            emvCreditSaleTransaction.BackColor = System.Drawing.Color.DarkGray;
+            emvCreditReturnTransaction.BackColor = System.Drawing.Color.DarkGray;
+            checkSaleTransaction.BackColor = System.Drawing.Color.DarkGray;
+            checkCreditTransaction.BackColor = System.Drawing.Color.DarkGray;
 
             //Parse the OTK from the OTK request.
             otk = parseXML(result, callType.otk);
@@ -439,12 +545,16 @@ namespace HPF_eComm_Demo
             result = callGateway(request);
             resultsXML.Text = result;
 
-            debitReturnTransaction.BackColor = System.Drawing.Color.SteelBlue;
-            creditSaleTransaction.BackColor = System.Drawing.Color.DarkGray;
-            creditReturnTransaction.BackColor = System.Drawing.Color.DarkGray;
-            debitSaleTransaction.BackColor = System.Drawing.Color.DarkGray;
             createAliasTransaction.BackColor = System.Drawing.Color.DarkGray;
+            creditSaleTransaction.BackColor = System.Drawing.Color.DarkGray;
+            debitReturnTransaction.BackColor = System.Drawing.Color.SteelBlue;
+            debitSaleTransaction.BackColor = System.Drawing.Color.DarkGray;
+            creditReturnTransaction.BackColor = System.Drawing.Color.DarkGray;
             checkAliasCreateTransaction.BackColor = System.Drawing.Color.DarkGray;
+            emvCreditSaleTransaction.BackColor = System.Drawing.Color.DarkGray;
+            emvCreditReturnTransaction.BackColor = System.Drawing.Color.DarkGray;
+            checkSaleTransaction.BackColor = System.Drawing.Color.DarkGray;
+            checkCreditTransaction.BackColor = System.Drawing.Color.DarkGray;
 
             //Parse the OTK from the OTK request.
             otk = parseXML(result, callType.otk);
@@ -475,6 +585,10 @@ namespace HPF_eComm_Demo
             debitSaleTransaction.BackColor = System.Drawing.Color.DarkGray;
             creditReturnTransaction.BackColor = System.Drawing.Color.DarkGray;
             checkAliasCreateTransaction.BackColor = System.Drawing.Color.DarkGray;
+            emvCreditSaleTransaction.BackColor = System.Drawing.Color.DarkGray;
+            emvCreditReturnTransaction.BackColor = System.Drawing.Color.DarkGray;
+            checkSaleTransaction.BackColor = System.Drawing.Color.DarkGray;
+            checkCreditTransaction.BackColor = System.Drawing.Color.DarkGray;
 
             //Parse the OTK from the OTK request.
             otk = parseXML(result, callType.otk);
@@ -484,10 +598,191 @@ namespace HPF_eComm_Demo
                 //Display the Hosted Payment Form within an iFrame on your page.
                 xwebIFrame.Attributes.Add("src", hpfURL + "?otk=" + otk);
             }
-
-
         }
 
-        
+        protected void checkSaleTransaction_Click(object sender, EventArgs e)
+        {
+            //Clearing all the things
+            string request = "";
+            string result = "";
+            xwebIFrame.Attributes.Add("src", "about.blank");
+
+            request = generateRequest(callType.otk, TranType.CheckSale);
+            otkCall.Text = request;
+
+            result = callGateway(request);
+            resultsXML.Text = result;
+
+            createAliasTransaction.BackColor = System.Drawing.Color.DarkGray;
+            creditSaleTransaction.BackColor = System.Drawing.Color.DarkGray;
+            debitReturnTransaction.BackColor = System.Drawing.Color.DarkGray;
+            debitSaleTransaction.BackColor = System.Drawing.Color.DarkGray;
+            creditReturnTransaction.BackColor = System.Drawing.Color.DarkGray;
+            checkAliasCreateTransaction.BackColor = System.Drawing.Color.DarkGray;
+            emvCreditSaleTransaction.BackColor = System.Drawing.Color.DarkGray;
+            emvCreditReturnTransaction.BackColor = System.Drawing.Color.DarkGray;
+            checkSaleTransaction.BackColor = System.Drawing.Color.SteelBlue;
+            checkCreditTransaction.BackColor = System.Drawing.Color.DarkGray;
+
+            /* Placeholder Button Changing Color AWesome!
+            createAliasTransaction.BackColor = System.Drawing.Color.DarkGray;
+            creditSaleTransaction.BackColor = System.Drawing.Color.DarkGray;
+            debitReturnTransaction.BackColor = System.Drawing.Color.DarkGray;
+            debitSaleTransaction.BackColor = System.Drawing.Color.DarkGray;
+            creditReturnTransaction.BackColor = System.Drawing.Color.DarkGray;
+            checkAliasCreateTransaction.BackColor = System.Drawing.Color.DarkGray;
+            emvCreditSaleTransaction.BackColor = System.Drawing.Color.DarkGray;
+            emvCreditReturnTransaction.BackColor = System.Drawing.Color.DarkGray;
+            checkSaleTransaction.BackColor = System.Drawing.Color.DarkGray;
+            checkCreditTransaction.BackColor = System.Drawing.Color.DarkGray;
+             */
+
+
+            //Parse the OTK from the OTK request.
+            otk = parseXML(result, callType.otk);
+
+            if (!String.IsNullOrEmpty(otk))
+            {
+                //Display the Hosted Payment Form within an iFrame on your page.
+                xwebIFrame.Attributes.Add("src", hpfURL + "?otk=" + otk);
+            }
+        }
+
+        protected void checkCreditTransaction_Click(object sender, EventArgs e)
+        {
+            //Clearing all the things
+            string request = "";
+            string result = "";
+            xwebIFrame.Attributes.Add("src", "about.blank");
+
+            request = generateRequest(callType.otk, TranType.CheckCredit);
+            otkCall.Text = request;
+
+            result = callGateway(request);
+            resultsXML.Text = result;
+
+            createAliasTransaction.BackColor = System.Drawing.Color.DarkGray;
+            creditSaleTransaction.BackColor = System.Drawing.Color.DarkGray;
+            debitReturnTransaction.BackColor = System.Drawing.Color.DarkGray;
+            debitSaleTransaction.BackColor = System.Drawing.Color.DarkGray;
+            creditReturnTransaction.BackColor = System.Drawing.Color.DarkGray;
+            checkAliasCreateTransaction.BackColor = System.Drawing.Color.DarkGray;
+            emvCreditSaleTransaction.BackColor = System.Drawing.Color.DarkGray;
+            emvCreditReturnTransaction.BackColor = System.Drawing.Color.DarkGray;
+            checkSaleTransaction.BackColor = System.Drawing.Color.DarkGray;
+            checkCreditTransaction.BackColor = System.Drawing.Color.SteelBlue;
+
+            //Parse the OTK from the OTK request.
+            otk = parseXML(result, callType.otk);
+
+            if (!String.IsNullOrEmpty(otk))
+            {
+                //Display the Hosted Payment Form within an iFrame on your page.
+                xwebIFrame.Attributes.Add("src", hpfURL + "?otk=" + otk);
+            }
+        }
+
+        protected void checkAliasCreateTransaction_Click(object sender, EventArgs e)
+        {
+            //Clearing all the things
+            string request = "";
+            string result = "";
+            xwebIFrame.Attributes.Add("src", "about.blank");
+
+            request = generateRequest(callType.otk, TranType.CheckAlias);
+            otkCall.Text = request;
+
+            result = callGateway(request);
+            resultsXML.Text = result;
+
+            createAliasTransaction.BackColor = System.Drawing.Color.DarkGray;
+            creditSaleTransaction.BackColor = System.Drawing.Color.DarkGray;
+            debitReturnTransaction.BackColor = System.Drawing.Color.DarkGray;
+            debitSaleTransaction.BackColor = System.Drawing.Color.DarkGray;
+            creditReturnTransaction.BackColor = System.Drawing.Color.DarkGray;
+            checkAliasCreateTransaction.BackColor = System.Drawing.Color.SteelBlue;
+            emvCreditSaleTransaction.BackColor = System.Drawing.Color.DarkGray;
+            emvCreditReturnTransaction.BackColor = System.Drawing.Color.DarkGray;
+            checkSaleTransaction.BackColor = System.Drawing.Color.DarkGray;
+            checkCreditTransaction.BackColor = System.Drawing.Color.DarkGray;
+
+            //Parse the OTK from the OTK request.
+            otk = parseXML(result, callType.otk);
+
+            if (!String.IsNullOrEmpty(otk))
+            {
+                //Display the Hosted Payment Form within an iFrame on your page.
+                xwebIFrame.Attributes.Add("src", hpfURL + "?otk=" + otk);
+            }
+        }
+
+        protected void emvCreditSaleTransaction_Click(object sender, EventArgs e)
+        {
+            //Clearing all the things
+            string request = "";
+            string result = "";
+            xwebIFrame.Attributes.Add("src", "about.blank");
+
+            request = generateRequest(callType.otk, TranType.CreditEMV);
+            otkCall.Text = request;
+
+            result = callGateway(request);
+            resultsXML.Text = result;
+
+            createAliasTransaction.BackColor = System.Drawing.Color.DarkGray;
+            creditSaleTransaction.BackColor = System.Drawing.Color.DarkGray;
+            debitReturnTransaction.BackColor = System.Drawing.Color.DarkGray;
+            debitSaleTransaction.BackColor = System.Drawing.Color.DarkGray;
+            creditReturnTransaction.BackColor = System.Drawing.Color.DarkGray;
+            checkAliasCreateTransaction.BackColor = System.Drawing.Color.DarkGray;
+            emvCreditSaleTransaction.BackColor = System.Drawing.Color.SteelBlue;
+            emvCreditReturnTransaction.BackColor = System.Drawing.Color.DarkGray;
+            checkSaleTransaction.BackColor = System.Drawing.Color.DarkGray;
+            checkCreditTransaction.BackColor = System.Drawing.Color.DarkGray;
+
+            //Parse the OTK from the OTK request.
+            otk = parseXML(result, callType.otk);
+
+            if (!String.IsNullOrEmpty(otk))
+            {
+                //Display the Hosted Payment Form within an iFrame on your page.
+                xwebIFrame.Attributes.Add("src", hpfURL + "?otk=" + otk);
+            }
+        }
+
+        protected void emvCreditReturnTransaction_Click(object sender, EventArgs e)
+        {
+            //Clearing all the things
+            string request = "";
+            string result = "";
+            xwebIFrame.Attributes.Add("src", "about.blank");
+
+            request = generateRequest(callType.otk, TranType.CreditEMVReturn);
+            otkCall.Text = request;
+
+            result = callGateway(request);
+            resultsXML.Text = result;
+
+            createAliasTransaction.BackColor = System.Drawing.Color.DarkGray;
+            creditSaleTransaction.BackColor = System.Drawing.Color.DarkGray;
+            debitReturnTransaction.BackColor = System.Drawing.Color.DarkGray;
+            debitSaleTransaction.BackColor = System.Drawing.Color.DarkGray;
+            creditReturnTransaction.BackColor = System.Drawing.Color.DarkGray;
+            checkAliasCreateTransaction.BackColor = System.Drawing.Color.DarkGray;
+            emvCreditSaleTransaction.BackColor = System.Drawing.Color.DarkGray;
+            emvCreditReturnTransaction.BackColor = System.Drawing.Color.SteelBlue;
+            checkSaleTransaction.BackColor = System.Drawing.Color.DarkGray;
+            checkCreditTransaction.BackColor = System.Drawing.Color.DarkGray;
+
+            //Parse the OTK from the OTK request.
+            otk = parseXML(result, callType.otk);
+
+            if (!String.IsNullOrEmpty(otk))
+            {
+                //Display the Hosted Payment Form within an iFrame on your page.
+                xwebIFrame.Attributes.Add("src", hpfURL + "?otk=" + otk);
+            }
+        }  
+
     }
 }

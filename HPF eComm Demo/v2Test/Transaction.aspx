@@ -26,46 +26,81 @@
                 width: 148px;
                 height: 34px;
             }
-            .auto-style5 {
-                height: 34px;
-            }
             .auto-style6 {
                 width: 506px;
+            }
+            .auto-style7 {
+                height: 23px;
+                width: 148px;
+            }
+            .auto-style11 {
+                height: 23px;
+                width: 147px;
+            }
+            .auto-style12 {
+                height: 34px;
+            }
+            .auto-style14 {
+                width: 2px;
             }
         </style>
 	</head>
 	<body>
 		<form id="demoForm" runat="server">
         <div>
-            <table style="width:100%;">
-                <tr>
-                    <td class="auto-style3">
-        <asp:Button ID="creditSaleTransaction" runat="server" OnClick="creditSaleTransaction_Click" Text="Credit Card Sale" Width="139px" BackColor="DarkGray" BorderStyle="None" EnableViewState="False" Font-Bold="True" ForeColor="White" Height="29px" />
-                    </td>
-                    <td class="auto-style4">
-        <asp:Button ID="creditReturnTransaction" runat="server" OnClick="creditReturnTransaction1_Click" Text="Credit Card Return" Width="140px" BackColor="DarkGray" BorderStyle="None" EnableViewState="False" Font-Bold="True" ForeColor="White" Height="30px" />
-                    </td>
-                    <td class="auto-style5"></td>
-                </tr>
-                <tr>
-                    <td class="auto-style1">
-        <asp:Button ID="debitSaleTransaction" runat="server" OnClick="debitSaleTransaction_Click" Text="Debit Sale" Width="140px" BackColor="DarkGray" BorderStyle="None" EnableViewState="False" Font-Bold="True" ForeColor="White" Height="30px" />
-                    </td>
-                    <td class="auto-style2">
-        <asp:Button ID="debitReturnTransaction" runat="server" OnClick="debitReturnTransaction_Click" Text="Debit Return" Width="140px" BackColor="DarkGray" BorderStyle="None" EnableViewState="False" Font-Bold="True" ForeColor="White" Height="30px" />
-                    </td>
-                    <td>NOT YET IMPLEMENTED!</td>
-                </tr>
-                <tr>
-                    <td class="auto-style1">
-        <asp:Button ID="createAliasTransaction" runat="server" OnClick="createAliasTransaction_Click" Text="Create Alias" Width="140px" BackColor="DarkGray" BorderStyle="None" EnableViewState="False" Font-Bold="True" ForeColor="White" Height="30px" />
-                    </td>
-                    <td class="auto-style2">
-        <asp:Button ID="checkAliasCreateTransaction" runat="server" OnClick="creditSaleTransaction_Click" Text="Create Check Alias" Width="140px" BackColor="DarkGray" BorderStyle="None" EnableViewState="False" Font-Bold="True" ForeColor="White" Height="30px" CausesValidation="False" />
-                    </td>
-                    <td>&nbsp;</td>
-                </tr>
-            </table>
+            <asp:Panel ID="Panel1" runat="server" EnableViewState="False" BackColor="#6DB9E6" BorderStyle="None">
+                <div style="font-family: 'Comic Sans MS'; font-size: large; font-weight: bold">Hosted Payment Form ASP.NET Test Page</div>
+                <table style="width:100%;">
+                    <tr>
+                        <td class="auto-style11">Standard Transactions</td>
+                        <td class="auto-style7"></td>
+                        <td class="auto-style14"></td>
+                        <td class="auto-style1">EMV Transactions</td>
+                        <td>(RCM and Hardware required)</td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style3">
+                            <asp:Button ID="creditSaleTransaction" runat="server" OnClick="creditSaleTransaction_Click" Text="Credit Card Sale" Width="139px" BackColor="DarkGray" BorderStyle="None" EnableViewState="False" Font-Bold="True" ForeColor="White" Height="28px" />
+                        </td>
+                        <td class="auto-style4">
+                            <asp:Button ID="creditReturnTransaction" runat="server" OnClick="creditReturnTransaction1_Click" Text="Credit Card Return" Width="140px" BackColor="DarkGray" BorderStyle="None" EnableViewState="False" Font-Bold="True" ForeColor="White" Height="30px" />
+                        </td>
+                        <td class="auto-style14"></td>
+                        <td class="auto-style3">
+                            <asp:Button ID="emvCreditSaleTransaction" runat="server" BackColor="DarkGray" BorderStyle="None" EnableViewState="False" Font-Bold="True" ForeColor="White" Height="28px" Text="EMV Credit Sale" Width="139px" OnClick="emvCreditSaleTransaction_Click" />
+                        </td>
+                        <td>
+                            <asp:Button ID="emvCreditReturnTransaction" runat="server" BackColor="DarkGray" BorderStyle="None" EnableViewState="False" Font-Bold="True" ForeColor="White" Height="28px" Text="EMV Credit Return" Width="139px" OnClick="emvCreditReturnTransaction_Click" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style1">
+                            <asp:Button ID="checkSaleTransaction" runat="server" BackColor="DarkGray" BorderStyle="None" EnableViewState="False" Font-Bold="True" ForeColor="White" Height="28px" Text="Check Sale" Width="139px" OnClick="checkSaleTransaction_Click" />
+                        </td>
+                        <td class="auto-style2">
+                            <asp:Button ID="checkCreditTransaction" runat="server" BackColor="DarkGray" BorderStyle="None" EnableViewState="False" Font-Bold="True" ForeColor="White" Height="28px" Text="Check Credit" Width="139px" OnClick="checkCreditTransaction_Click" />
+                        </td>
+                        <td class="auto-style14"></td>
+                        <td class="auto-style1">
+                            <asp:Button ID="debitSaleTransaction" runat="server" BackColor="DarkGray" BorderStyle="None" EnableViewState="False" Font-Bold="True" ForeColor="White" Height="30px" OnClick="debitSaleTransaction_Click" Text="Debit Sale" Width="140px" />
+                        </td>
+                        <td>
+                            <asp:Button ID="debitReturnTransaction" runat="server" BackColor="DarkGray" BorderStyle="None" EnableViewState="False" Font-Bold="True" ForeColor="White" Height="30px" OnClick="debitReturnTransaction_Click" Text="Debit Return" Width="140px" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style3">
+                            <asp:Button ID="createAliasTransaction" runat="server" OnClick="createAliasTransaction_Click" Text="Create Alias" Width="140px" BackColor="DarkGray" BorderStyle="None" EnableViewState="False" Font-Bold="True" ForeColor="White" Height="30px" />
+                        </td>
+                        <td class="auto-style4">
+                            <asp:Button ID="checkAliasCreateTransaction" runat="server" OnClick="checkAliasCreateTransaction_Click" Text="Create Check Alias" Width="140px" BackColor="DarkGray" BorderStyle="None" EnableViewState="False" Font-Bold="True" ForeColor="White" Height="30px" CausesValidation="False" />
+                        </td>
+                        <td class="auto-style14"></td>
+                        <td class="auto-style3"></td>
+                        <td class="auto-style12"></td>
+                    </tr>
+                </table>
+            </asp:Panel>
             <br />
             </div>
 			<asp:scriptmanager ID="defaultScriptManager" runat="server"></asp:scriptmanager>
