@@ -10,8 +10,7 @@
             #xwebIFrame
             {
                 width: 100%;
-                height: 269px;
-            }
+                }
             .auto-style1 {
                 width: 147px;
             }
@@ -51,6 +50,10 @@
                 height: 26px;
             }
             .auto-style18 {
+                height: 26px;
+            }
+            .auto-style19 {
+                width: 313px;
                 height: 26px;
             }
         </style>
@@ -111,7 +114,16 @@
                     </tr>
                 </table>
             </asp:Panel>
+                            <table style="width:100%;">
+                                <tr>
+                                    <td class="auto-style19">
                             <asp:Button ID="AdvancedButton" runat="server" OnClick="CustomCredsButton_Click" Text="Advanced" Width="139px" BackColor="DarkGray" BorderStyle="None" EnableViewState="False" Font-Bold="True" ForeColor="White" Height="23px" />
+                                    </td>
+                                    
+                                    <td class="auto-style18"></td>
+                                </tr>
+                               
+            </table>
                         <asp:Panel ID="CustomCredsPanel" runat="server" ScrollBars="Vertical" BackColor="LightGray" Visible="False">
                             <asp:CheckBox ID="boxCustomCreds" runat="server" Text="Use Custom XWeb Credentials" />
                             <br />
@@ -156,15 +168,18 @@
 			<div>
 				<table dir="ltr" style="width:100%;">
                     <tr>
-                        <td class="auto-style6">
-				<iframe id="xwebIFrame" runat="server" scrolling="yes" style="border-style: hidden"></iframe>
+                        <td class="auto-style6" style="width: 37%">
+				<iframe id="xwebIFrame" runat="server" scrolling="yes" style="border-style: hidden; height: 575px;"></iframe>
 			            </td>
-                        <td>OtK Call XML:<br />
-            <asp:TextBox ID="otkCall" runat="server" Height="257px" TextMode="MultiLine" Width="412px"></asp:TextBox>
-            <br />
-            <br />
-                            OtK Call Result:<br />
-            <asp:TextBox ID="resultsXML" runat="server" Height="263px" TextMode="MultiLine" Width="413px"></asp:TextBox>
+                        <td>
+                            <asp:Panel ID="XMLPanel" runat="server">
+                                OtK Call XML:<br />
+                                <asp:TextBox ID="otkCall" runat="server" Height="257px" TextMode="MultiLine" Width="412px"></asp:TextBox>
+                                <br />
+                                <br />
+                                OtK Call Result:<br />
+                                <asp:TextBox ID="resultsXML" runat="server" Height="263px" TextMode="MultiLine" Width="413px"></asp:TextBox>
+                            </asp:Panel>
                         </td>                  
                     </tr>
                 </table>

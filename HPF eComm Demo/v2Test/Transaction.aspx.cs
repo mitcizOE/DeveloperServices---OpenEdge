@@ -46,6 +46,8 @@ namespace HPF_eComm_Demo
                 xmlWriter.WriteStartDocument();
                 //StartRoot element
                 xmlWriter.WriteStartElement("GatewayRequest");
+
+                //Check for Custom Creds
                 if (useCustomCreds == false)
                 {
                     // Standard XWeb Creds
@@ -249,6 +251,8 @@ namespace HPF_eComm_Demo
                     }
                  
                 }
+
+                //Results call Writer
                 if (type == TranType.ResultsCall)
                 {
                     xmlWriter.WriteStartElement("OTK");
@@ -260,6 +264,7 @@ namespace HPF_eComm_Demo
                     xmlWriter.WriteEndElement();
                 }
 
+                // Else if for not
                 else
                 {
 
@@ -816,8 +821,11 @@ namespace HPF_eComm_Demo
             }
         }
 
+
+        
         protected void HideButton_Click(object sender, EventArgs e)
         {
+            //Hide Panel and make Advanced Button Visible.
             CustomCredsPanel.Visible = false;
             AdvancedButton.Visible = true;
 
@@ -825,12 +833,15 @@ namespace HPF_eComm_Demo
 
         protected void CustomCredsButton_Click(object sender, EventArgs e)
         {
+            //Show Panel and Hide Advanced Button
             CustomCredsPanel.Visible = true;
             AdvancedButton.Visible = false;
         }
 
         protected void saveButton_Click(object sender, EventArgs e)
         {
+            
+            //Save Custom XWeb Params, make Advance Button Non Visible (just cuz)
             xWebIDCustom = customXWebID.Text;
             authKeyCustom = customAuthKey.Text;
             terminalIDCustom = customTerminalID.Text;
@@ -845,6 +856,7 @@ namespace HPF_eComm_Demo
             {
                 useCustomCreds = false;
             }
+            AdvancedButton.Visible = false;
 
         }
   
