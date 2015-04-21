@@ -79,7 +79,7 @@
             <asp:TextBox ID="otkCall" runat="server" Height="257px" TextMode="MultiLine" Width="412px"></asp:TextBox>
             <br />
             <br />
-            Results Call XML:<br />
+                            OtK Call Result:<br />
             <asp:TextBox ID="resultsXML" runat="server" Height="263px" TextMode="MultiLine" Width="413px"></asp:TextBox>
                         </td>                  
                     </tr>
