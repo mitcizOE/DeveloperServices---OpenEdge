@@ -43,6 +43,16 @@
             .auto-style14 {
                 width: 2px;
             }
+            .auto-style16 {
+                width: 130px;
+            }
+            .auto-style17 {
+                width: 130px;
+                height: 26px;
+            }
+            .auto-style18 {
+                height: 26px;
+            }
         </style>
 	</head>
 	<body>
@@ -100,6 +110,45 @@
                         <td class="auto-style12"></td>
                     </tr>
                 </table>
+            </asp:Panel>
+                            <asp:Button ID="AdvancedButton" runat="server" OnClick="CustomCredsButton_Click" Text="Advanced" Width="139px" BackColor="DarkGray" BorderStyle="None" EnableViewState="False" Font-Bold="True" ForeColor="White" Height="23px" />
+                        <asp:Panel ID="CustomCredsPanel" runat="server" ScrollBars="Vertical" BackColor="LightGray" Visible="False">
+                            <asp:CheckBox ID="boxCustomCreds" runat="server" Text="Use Custom XWeb Credentials" />
+                            <br />
+                            <table style="width:100%;">
+                                <tr>
+                                    <td class="auto-style17">XWeb ID</td>
+                                    <td class="auto-style18">
+                                        <asp:TextBox ID="customXWebID" runat="server" Width="200px"></asp:TextBox>
+                                    </td>
+                                    <td class="auto-style18"></td>
+                                </tr>
+                                <tr>
+                                    <td class="auto-style16">Authentication Key</td>
+                                    <td>
+                                        <asp:TextBox ID="customAuthKey" runat="server" Width="200px"></asp:TextBox>
+                                    </td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td class="auto-style17">Terminal ID</td>
+                                    <td class="auto-style18">
+                                        <asp:TextBox ID="customTerminalID" runat="server" Width="199px"></asp:TextBox>
+                                    </td>
+                                    <td class="auto-style18"></td>
+                                </tr>
+                                <tr>
+                                    <td class="auto-style16">Industry</td>
+                                    <td>
+                                        <asp:TextBox ID="customIndustry" runat="server" Width="200px"></asp:TextBox>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                            </table>
+                            <asp:Button ID="saveButton" runat="server" BackColor="DarkGray" BorderStyle="None" EnableViewState="False" Font-Bold="True" ForeColor="White" Height="23px" OnClick="saveButton_Click" Text="Save" Width="139px" />
+                            <br />
+                            <br />
+                            <asp:Button ID="HideButton" runat="server" BackColor="DarkGray" BorderStyle="None" EnableViewState="False" Font-Bold="True" ForeColor="White" Height="23px" OnClick="HideButton_Click" Text="Hide" Width="139px" />
             </asp:Panel>
             <br />
             </div>

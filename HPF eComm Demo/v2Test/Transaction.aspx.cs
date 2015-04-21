@@ -18,6 +18,14 @@ namespace HPF_eComm_Demo
         private static string gatewayURL = "https://test.t3secure.net/x-chargeweb.dll";
         private static string hpfURL = "https://integrator.t3secure.net/hpf/hpf.aspx";
 
+
+        //Custom XWEb Creds
+        public static string xWebIDCustom;
+        public static string authKeyCustom;
+        public static string terminalIDCustom;
+        public static string industryCustom;
+        public static bool useCustomCreds = false;
+
         internal static string otk = null;
         
         private string generateRequest(callType reason, TranType type)
@@ -38,86 +46,110 @@ namespace HPF_eComm_Demo
                 xmlWriter.WriteStartDocument();
                 //StartRoot element
                 xmlWriter.WriteStartElement("GatewayRequest");
-                
-                // Standard XWeb Creds
-                if (type == TranType.CreditSale || type == TranType.CreditReturn || type == TranType.AliasCreate)
+                if (useCustomCreds == false)
                 {
-                    //Start XWeb credentials
-                    xmlWriter.WriteStartElement("XWebID");
-                    xmlWriter.WriteString("800000001844");
-                    xmlWriter.WriteEndElement();
+                    // Standard XWeb Creds
+                    if (type == TranType.CreditSale || type == TranType.CreditReturn || type == TranType.AliasCreate)
+                    {
+                        //Start XWeb credentials
+                        xmlWriter.WriteStartElement("XWebID");
+                        xmlWriter.WriteString("800000001844");
+                        xmlWriter.WriteEndElement();
 
-                    xmlWriter.WriteStartElement("TerminalID");
-                    xmlWriter.WriteString("80022706");
-                    xmlWriter.WriteEndElement();
+                        xmlWriter.WriteStartElement("TerminalID");
+                        xmlWriter.WriteString("80022706");
+                        xmlWriter.WriteEndElement();
 
-                    xmlWriter.WriteStartElement("AuthKey");
-                    xmlWriter.WriteString("zWCvjz8pZcy10t5QWHsex7jRhwl992jd");
-                    xmlWriter.WriteEndElement();
-                    //End XWeb credentials
+                        xmlWriter.WriteStartElement("AuthKey");
+                        xmlWriter.WriteString("zWCvjz8pZcy10t5QWHsex7jRhwl992jd");
+                        xmlWriter.WriteEndElement();
+                        //End XWeb credentials
 
-                    xmlWriter.WriteStartElement("Industry");
-                    xmlWriter.WriteString("RETAIL");
-                    xmlWriter.WriteEndElement();
+                        xmlWriter.WriteStartElement("Industry");
+                        xmlWriter.WriteString("RETAIL");
+                        xmlWriter.WriteEndElement();
+                    }
+                    //Credit EMV Creds (PG)
+                    if (type == TranType.CreditEMV || type == TranType.CreditEMVReturn)
+                    {
+                        //Start XWeb credentials
+                        xmlWriter.WriteStartElement("XWebID");
+                        xmlWriter.WriteString("800000001694");
+                        xmlWriter.WriteEndElement();
+
+                        xmlWriter.WriteStartElement("TerminalID");
+                        xmlWriter.WriteString("80022125");
+                        xmlWriter.WriteEndElement();
+
+                        xmlWriter.WriteStartElement("AuthKey");
+                        xmlWriter.WriteString("t6Gr99v6eo8xfLFSzYieujuPLkkDfbHI");
+                        xmlWriter.WriteEndElement();
+                        //End XWeb credentials
+
+                        xmlWriter.WriteStartElement("Industry");
+                        xmlWriter.WriteString("RETAIL");
+                        xmlWriter.WriteEndElement();
+                    }
+                    //Debit EMV Creds (PG)
+                    if (type == TranType.DebitSale || type == TranType.DebitReturn)
+                    {
+                        //Start XWeb credentials
+                        xmlWriter.WriteStartElement("XWebID");
+                        xmlWriter.WriteString("800000001694");
+                        xmlWriter.WriteEndElement();
+
+                        xmlWriter.WriteStartElement("TerminalID");
+                        xmlWriter.WriteString("80022120");
+                        xmlWriter.WriteEndElement();
+
+                        xmlWriter.WriteStartElement("AuthKey");
+                        xmlWriter.WriteString("NAFV4pikCkOydaS2SXZbArEdcc2xXlkj");
+                        xmlWriter.WriteEndElement();
+                        //End XWeb credentials
+
+                        xmlWriter.WriteStartElement("Industry");
+                        xmlWriter.WriteString("RETAIL");
+                        xmlWriter.WriteEndElement();
+                    }
+                    //Check Creds
+                    if (type == TranType.CheckAlias || type == TranType.CheckSale || type == TranType.CheckCredit)
+                    {
+                        //Start XWeb credentials
+                        xmlWriter.WriteStartElement("XWebID");
+                        xmlWriter.WriteString("800000001844");
+                        xmlWriter.WriteEndElement();
+
+                        xmlWriter.WriteStartElement("TerminalID");
+                        xmlWriter.WriteString("80022690");
+                        xmlWriter.WriteEndElement();
+
+                        xmlWriter.WriteStartElement("AuthKey");
+                        xmlWriter.WriteString("XisLfXu2QVDYuBSt4k4r9go7ZELxRlie");
+                        xmlWriter.WriteEndElement();
+                        //End XWeb credentials
+                    }
                 }
-                //Credit EMV Creds (PG)
-                if (type == TranType.CreditEMV || type == TranType.CreditEMVReturn)
+                //Use Custom Creds
+                if (useCustomCreds == true)
                 {
-                    //Start XWeb credentials
                     xmlWriter.WriteStartElement("XWebID");
-                    xmlWriter.WriteString("800000001694");
+                    xmlWriter.WriteString(xWebIDCustom);
                     xmlWriter.WriteEndElement();
 
                     xmlWriter.WriteStartElement("TerminalID");
-                    xmlWriter.WriteString("80022125");
+                    xmlWriter.WriteString(terminalIDCustom);
                     xmlWriter.WriteEndElement();
 
                     xmlWriter.WriteStartElement("AuthKey");
-                    xmlWriter.WriteString("t6Gr99v6eo8xfLFSzYieujuPLkkDfbHI");
-                    xmlWriter.WriteEndElement();
-                    //End XWeb credentials
-
-                    xmlWriter.WriteStartElement("Industry");
-                    xmlWriter.WriteString("RETAIL");
-                    xmlWriter.WriteEndElement();
-                }
-                //Debit EMV Creds (PG)
-                if (type == TranType.DebitSale || type == TranType.DebitReturn)
-                {
-                    //Start XWeb credentials
-                    xmlWriter.WriteStartElement("XWebID");
-                    xmlWriter.WriteString("800000001694");
+                    xmlWriter.WriteString(authKeyCustom);
                     xmlWriter.WriteEndElement();
 
-                    xmlWriter.WriteStartElement("TerminalID");
-                    xmlWriter.WriteString("80022120");
-                    xmlWriter.WriteEndElement();
-
-                    xmlWriter.WriteStartElement("AuthKey");
-                    xmlWriter.WriteString("NAFV4pikCkOydaS2SXZbArEdcc2xXlkj");
-                    xmlWriter.WriteEndElement();
-                    //End XWeb credentials
-
-                    xmlWriter.WriteStartElement("Industry");
-                    xmlWriter.WriteString("RETAIL");
-                    xmlWriter.WriteEndElement();
-                }
-                //Check Creds
-                if (type == TranType.CheckAlias || type == TranType.CheckSale || type == TranType.CheckCredit)
-                {
-                    //Start XWeb credentials
-                    xmlWriter.WriteStartElement("XWebID");
-                    xmlWriter.WriteString("800000001844");
-                    xmlWriter.WriteEndElement();
-
-                    xmlWriter.WriteStartElement("TerminalID");
-                    xmlWriter.WriteString("80022690");
-                    xmlWriter.WriteEndElement();
-
-                    xmlWriter.WriteStartElement("AuthKey");
-                    xmlWriter.WriteString("XisLfXu2QVDYuBSt4k4r9go7ZELxRlie");
-                    xmlWriter.WriteEndElement();
-                    //End XWeb credentials
+                    if (industryCustom != null || industryCustom != "")
+                    {
+                        xmlWriter.WriteStartElement("Industry");
+                        xmlWriter.WriteString(industryCustom);
+                        xmlWriter.WriteEndElement();
+                    }
                 }
 
                 xmlWriter.WriteStartElement("SpecVersion");
@@ -782,7 +814,40 @@ namespace HPF_eComm_Demo
                 //Display the Hosted Payment Form within an iFrame on your page.
                 xwebIFrame.Attributes.Add("src", hpfURL + "?otk=" + otk);
             }
-        }  
+        }
+
+        protected void HideButton_Click(object sender, EventArgs e)
+        {
+            CustomCredsPanel.Visible = false;
+            AdvancedButton.Visible = true;
+
+        }
+
+        protected void CustomCredsButton_Click(object sender, EventArgs e)
+        {
+            CustomCredsPanel.Visible = true;
+            AdvancedButton.Visible = false;
+        }
+
+        protected void saveButton_Click(object sender, EventArgs e)
+        {
+            xWebIDCustom = customXWebID.Text;
+            authKeyCustom = customAuthKey.Text;
+            terminalIDCustom = customTerminalID.Text;
+            industryCustom = customIndustry.Text;
+
+            if (boxCustomCreds.Checked)
+            {
+                useCustomCreds = true;
+            }
+
+            if (!boxCustomCreds.Checked)
+            {
+                useCustomCreds = false;
+            }
+
+        }
+  
 
     }
 }
