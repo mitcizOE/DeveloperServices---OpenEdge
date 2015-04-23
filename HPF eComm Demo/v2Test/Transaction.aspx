@@ -114,17 +114,13 @@
                     </tr>
                 </table>
             </asp:Panel>
-                            <table style="width:100%;">
-                                <tr>
-                                    <td class="auto-style19">
+                            
                             <asp:Button ID="AdvancedButton" runat="server" OnClick="CustomCredsButton_Click" Text="Advanced" Width="139px" BackColor="DarkGray" BorderStyle="None" EnableViewState="False" Font-Bold="True" ForeColor="White" Height="23px" />
-                                    </td>
                                     
-                                    <td class="auto-style18"></td>
-                                </tr>
                                
-            </table>
+            
                         <asp:Panel ID="CustomCredsPanel" runat="server" ScrollBars="Vertical" BackColor="LightGray" Visible="False">
+                            <br />
                             <asp:CheckBox ID="boxCustomCreds" runat="server" Text="Use Custom XWeb Credentials" />
                             <br />
                             <table style="width:100%;">
@@ -187,12 +183,12 @@
 			</div>
             <div style="height: 163px">
             <asp:Timer ID="TimerResultCall" OnTick="TimerResultCall_Tick" runat="server" 
-                    Interval="5000"></asp:Timer>
+                    Interval="10000"></asp:Timer>
             <asp:UpdatePanel ID="UpdatePanelResult" runat="server" UpdateMode="Conditional">
                 <ContentTemplate>
                     <br />
                     <asp:TextBox ID="TextBoxResultDisplay" runat="server" Height="116px" 
-                        ReadOnly="True" Width="191px" TextMode="MultiLine" Font-Size="Large" Visible="False"></asp:TextBox>
+                        ReadOnly="True" Width="191px" TextMode="MultiLine" Font-Size="Large" OnDataBinding="TextBoxResultDisplay_DataBinding"></asp:TextBox>
                 </ContentTemplate>
                 <Triggers>
                     <asp:AsyncPostBackTrigger ControlID="TimerResultCall" EventName="Tick" />

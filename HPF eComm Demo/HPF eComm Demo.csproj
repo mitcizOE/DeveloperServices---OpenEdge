@@ -58,6 +58,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\CustomerDB.xml" />
+    <Content Include="App_Data\ResultFiles.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="CheckAliasCreateTransaction.aspx" />
     <Content Include="CreditSaleEMVTransaction.aspx" />
     <Content Include="css\914.css" />
@@ -68,9 +71,13 @@
     <Content Include="HomeExtraSpace.aspx" />
     <Content Include="HomeStyle.css" />
     <Content Include="index.html" />
+    <Content Include="LoggingUtilities\TokenDB.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="success.aspx" />
     <Content Include="AliasCreateTransaction.aspx" />
     <Content Include="CreditSaleTransaction.aspx" />
+    <Content Include="LoggingUtilities\GatewayResponse.xml" />
     <Content Include="v2Test\Transaction.aspx" />
     <Content Include="Web.config" />
     <Content Include="Home.aspx" />
@@ -152,6 +159,7 @@
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="v2Test\DBFunctions.cs" />
     <Compile Include="v2Test\Transaction.aspx.cs">
       <DependentUpon>Transaction.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

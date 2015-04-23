@@ -26,6 +26,11 @@ namespace HPF_eComm_Demo
         public static string industryCustom;
         public static bool useCustomCreds = false;
 
+        //For Result call Usage ONLY! (Sigh) Custom Creds Result Calls NYI
+        public static string currentXWebID;
+        public static string currentAuthKey;
+        public static string currentTerminalID;
+
         internal static string otk = null;
         
         private string generateRequest(callType reason, TranType type)
@@ -234,10 +239,11 @@ namespace HPF_eComm_Demo
                             xmlWriter.WriteStartElement("DuplicateMode");
                             xmlWriter.WriteString("CHECKING_OFF");
                             xmlWriter.WriteEndElement();
-
+                            /*
                             xmlWriter.WriteStartElement("ShowReceipt");
                             xmlWriter.WriteString("TRUE");
                             xmlWriter.WriteEndElement();
+                             */
                         }
 
                         xmlWriter.WriteStartElement("Amount");
@@ -255,6 +261,18 @@ namespace HPF_eComm_Demo
                 //Results call Writer
                 if (type == TranType.ResultsCall)
                 {
+                    xmlWriter.WriteStartElement("XWebID");
+                    xmlWriter.WriteString(currentXWebID);
+                    xmlWriter.WriteEndElement();
+
+                    xmlWriter.WriteStartElement("TerminalID");
+                    xmlWriter.WriteString(currentTerminalID);
+                    xmlWriter.WriteEndElement();
+
+                    xmlWriter.WriteStartElement("AuthKey");
+                    xmlWriter.WriteString(currentAuthKey);
+                    xmlWriter.WriteEndElement();
+
                     xmlWriter.WriteStartElement("OTK");
                     xmlWriter.WriteString(otk);
                     xmlWriter.WriteEndElement();
@@ -320,7 +338,9 @@ namespace HPF_eComm_Demo
                 tokDataStream.Close();
                 tokResponse.Close();
 
+                
                 return response;
+                
 
             }
             catch (Exception EX)
@@ -332,7 +352,8 @@ namespace HPF_eComm_Demo
         private string parseXML(string toParse, callType reason)
         {
             string parsedData = null;
-
+            DB.DBFunctions.SaveResult(toParse);
+                    
             //Parse gateway reponse for OTK
             using (XmlTextReader xmlReader = new XmlTextReader(new StringReader(toParse)))
             {
@@ -348,7 +369,7 @@ namespace HPF_eComm_Demo
                             {
                                 while (xmlReader.ReadToFollowing("OTK"))
                                 {
-                                    parsedData = xmlReader.ReadElementContentAsString();
+                                    parsedData = xmlReader.ReadElementContentAsString();                                
                                 }
                             }
                         }
@@ -367,6 +388,7 @@ namespace HPF_eComm_Demo
         private string parseAlias(string toParse, callType reason)
         {
             string parsedData = null;
+            DB.DBFunctions.saveAlias(toParse);
 
             //parse Gateway for Alias
             using (XmlTextReader xmlReader = new XmlTextReader(new StringReader(toParse)))
@@ -384,6 +406,7 @@ namespace HPF_eComm_Demo
                                 while (xmlReader.ReadToFollowing("Alias"))
                                 {
                                     parsedData = xmlReader.ReadElementContentAsString();
+                                    
                                 }
                             }
                         }
@@ -472,6 +495,20 @@ namespace HPF_eComm_Demo
             string result = "";
             xwebIFrame.Attributes.Add("src", "about.blank");
 
+            
+
+            //Hardcoded Credit XWeb ID for Results Calls (Custom Creds NYI!)
+            currentXWebID = "800000001844";
+            currentAuthKey = "zWCvjz8pZcy10t5QWHsex7jRhwl992jd";
+            currentTerminalID = "80022706";
+
+            if (boxCustomCreds.Checked)
+            {
+                currentXWebID = xWebIDCustom;
+                currentAuthKey = authKeyCustom;
+                currentTerminalID = terminalIDCustom;
+            }
+
             //Call and  Go
             request = generateRequest(callType.otk, TranType.CreditSale);
             otkCall.Text = request;
@@ -499,6 +536,7 @@ namespace HPF_eComm_Demo
                 xwebIFrame.Attributes.Add("src", hpfURL + "?otk=" + otk);
             }
 
+
         }
 
         protected void creditReturnTransaction1_Click(object sender, EventArgs e)
@@ -507,6 +545,18 @@ namespace HPF_eComm_Demo
             string request = "";
             string result = "";
             xwebIFrame.Attributes.Add("src", "about.blank");
+
+            //Hardcoded Credit XWeb ID for Results Calls (Custom Creds NYI!)
+            currentXWebID = "800000001844";
+            currentAuthKey = "zWCvjz8pZcy10t5QWHsex7jRhwl992jd";
+            currentTerminalID = "80022706";
+
+            if (boxCustomCreds.Checked)
+            {
+                currentXWebID = xWebIDCustom;
+                currentAuthKey = authKeyCustom;
+                currentTerminalID = terminalIDCustom;
+            }
             
             request = generateRequest(callType.otk, TranType.CreditReturn);
             otkCall.Text = request;
@@ -542,6 +592,18 @@ namespace HPF_eComm_Demo
             string result = "";
             xwebIFrame.Attributes.Add("src", "about.blank");
 
+            //Hardcoded Debit XWeb ID for Results Calls (Custom Creds NYI!)
+            currentXWebID = "800000001694";
+            currentAuthKey = "NAFV4pikCkOydaS2SXZbArEdcc2xXlkj";
+            currentTerminalID = "80022120";
+
+            if (boxCustomCreds.Checked)
+            {
+                currentXWebID = xWebIDCustom;
+                currentAuthKey = authKeyCustom;
+                currentTerminalID = terminalIDCustom;
+            }
+
             request = generateRequest(callType.otk, TranType.DebitSale);
             otkCall.Text = request;
 
@@ -575,6 +637,18 @@ namespace HPF_eComm_Demo
             string request = "";
             string result = "";
             xwebIFrame.Attributes.Add("src", "about.blank");
+
+            //Hardcoded Debit XWeb ID for Results Calls (Custom Creds NYI!)
+            currentXWebID = "800000001694";
+            currentAuthKey = "NAFV4pikCkOydaS2SXZbArEdcc2xXlkj";
+            currentTerminalID = "80022120";
+
+            if (boxCustomCreds.Checked)
+            {
+                currentXWebID = xWebIDCustom;
+                currentAuthKey = authKeyCustom;
+                currentTerminalID = terminalIDCustom;
+            }
 
             request = generateRequest(callType.otk, TranType.DebitReturn);
             otkCall.Text = request;
@@ -610,6 +684,18 @@ namespace HPF_eComm_Demo
             string result = "";
             xwebIFrame.Attributes.Add("src", "about.blank");
 
+            //Hardcoded Credit XWeb ID for Results Calls (Custom Creds NYI!)
+            currentXWebID = "800000001844";
+            currentAuthKey = "zWCvjz8pZcy10t5QWHsex7jRhwl992jd";
+            currentTerminalID = "80022706";
+
+            if (boxCustomCreds.Checked)
+            {
+                currentXWebID = xWebIDCustom;
+                currentAuthKey = authKeyCustom;
+                currentTerminalID = terminalIDCustom;
+            }
+
             request = generateRequest(callType.otk, TranType.AliasCreate);
             otkCall.Text = request;
 
@@ -643,6 +729,18 @@ namespace HPF_eComm_Demo
             string request = "";
             string result = "";
             xwebIFrame.Attributes.Add("src", "about.blank");
+
+            //Hardcoded Check XWeb ID for Results Calls (Custom Creds NYI!)
+            currentXWebID = "800000001844";
+            currentAuthKey = "XisLfXu2QVDYuBSt4k4r9go7ZELxRlie";
+            currentTerminalID = "80022690";
+
+            if (boxCustomCreds.Checked)
+            {
+                currentXWebID = xWebIDCustom;
+                currentAuthKey = authKeyCustom;
+                currentTerminalID = terminalIDCustom;
+            }
 
             request = generateRequest(callType.otk, TranType.CheckSale);
             otkCall.Text = request;
@@ -692,6 +790,18 @@ namespace HPF_eComm_Demo
             string result = "";
             xwebIFrame.Attributes.Add("src", "about.blank");
 
+            //Hardcoded Check XWeb ID for Results Calls (Custom Creds NYI!)
+            currentXWebID = "800000001844";
+            currentAuthKey = "XisLfXu2QVDYuBSt4k4r9go7ZELxRlie";
+            currentTerminalID = "80022690";
+
+            if (boxCustomCreds.Checked)
+            {
+                currentXWebID = xWebIDCustom;
+                currentAuthKey = authKeyCustom;
+                currentTerminalID = terminalIDCustom;
+            }
+
             request = generateRequest(callType.otk, TranType.CheckCredit);
             otkCall.Text = request;
 
@@ -725,6 +835,18 @@ namespace HPF_eComm_Demo
             string request = "";
             string result = "";
             xwebIFrame.Attributes.Add("src", "about.blank");
+
+            //Hardcoded Check XWeb ID for Results Calls (Custom Creds NYI!)
+            currentXWebID = "800000001844";
+            currentAuthKey = "XisLfXu2QVDYuBSt4k4r9go7ZELxRlie";
+            currentTerminalID = "80022690";
+
+            if (boxCustomCreds.Checked)
+            {
+                currentXWebID = xWebIDCustom;
+                currentAuthKey = authKeyCustom;
+                currentTerminalID = terminalIDCustom;
+            }
 
             request = generateRequest(callType.otk, TranType.CheckAlias);
             otkCall.Text = request;
@@ -760,6 +882,18 @@ namespace HPF_eComm_Demo
             string result = "";
             xwebIFrame.Attributes.Add("src", "about.blank");
 
+            //Hardcoded Credit EMV XWeb ID for Results Calls (Custom Creds NYI!)
+            currentXWebID = "800000001694";
+            currentAuthKey = "t6Gr99v6eo8xfLFSzYieujuPLkkDfbHI";
+            currentTerminalID = "80022125";
+
+            if (boxCustomCreds.Checked)
+            {
+                currentXWebID = xWebIDCustom;
+                currentAuthKey = authKeyCustom;
+                currentTerminalID = terminalIDCustom;
+            }
+
             request = generateRequest(callType.otk, TranType.CreditEMV);
             otkCall.Text = request;
 
@@ -794,6 +928,18 @@ namespace HPF_eComm_Demo
             string result = "";
             xwebIFrame.Attributes.Add("src", "about.blank");
 
+            //Hardcoded Credit EMV XWeb ID for Results Calls (Custom Creds NYI!)
+            currentXWebID = "800000001694";
+            currentAuthKey = "t6Gr99v6eo8xfLFSzYieujuPLkkDfbHI";
+            currentTerminalID = "80022125";
+
+            if (boxCustomCreds.Checked)
+            {
+                currentXWebID = xWebIDCustom;
+                currentAuthKey = authKeyCustom;
+                currentTerminalID = terminalIDCustom;
+            }
+
             request = generateRequest(callType.otk, TranType.CreditEMVReturn);
             otkCall.Text = request;
 
@@ -827,7 +973,7 @@ namespace HPF_eComm_Demo
         {
             //Hide Panel and make Advanced Button Visible.
             CustomCredsPanel.Visible = false;
-            AdvancedButton.Visible = true;
+            AdvancedButton.BackColor = System.Drawing.Color.SteelBlue;
 
         }
 
@@ -835,7 +981,7 @@ namespace HPF_eComm_Demo
         {
             //Show Panel and Hide Advanced Button
             CustomCredsPanel.Visible = true;
-            AdvancedButton.Visible = false;
+            AdvancedButton.BackColor = System.Drawing.Color.SteelBlue;
         }
 
         protected void saveButton_Click(object sender, EventArgs e)
@@ -856,9 +1002,15 @@ namespace HPF_eComm_Demo
             {
                 useCustomCreds = false;
             }
-            AdvancedButton.Visible = false;
 
         }
+
+        protected void TextBoxResultDisplay_DataBinding(object sender, EventArgs e)
+        {
+
+        }
+
+
   
 
     }
