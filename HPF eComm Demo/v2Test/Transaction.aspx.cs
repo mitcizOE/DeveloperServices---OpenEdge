@@ -1040,6 +1040,11 @@ namespace HPF_eComm_Demo
 
         }
 
+        protected void TextBoxResultDisplay_DataBinding(object sender, EventArgs e)
+        {
+
+        }
+
 
   
 

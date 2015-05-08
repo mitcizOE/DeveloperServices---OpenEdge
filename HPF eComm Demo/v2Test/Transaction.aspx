@@ -184,7 +184,7 @@
                 <ContentTemplate>
                     Results Call:<br />
                     <asp:TextBox ID="TextBoxResultDisplay" runat="server" Height="116px" 
-                        ReadOnly="True" Width="191px" TextMode="MultiLine" Font-Size="Large" OnDataBinding="TextBoxResultDisplay_DataBinding"></asp:TextBox>
+                        ReadOnly="True" Width="191px" TextMode="MultiLine" Font-Size="Large" OnDataBinding="TextBoxResultDisplay_DataBinding" OnTextChanged="TextBoxResultDisplay_TextChanged"></asp:TextBox>
                 </ContentTemplate>
                 <Triggers>
                     <asp:AsyncPostBackTrigger ControlID="TimerResultCall" EventName="Tick" />
