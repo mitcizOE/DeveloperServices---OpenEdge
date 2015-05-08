@@ -1044,7 +1044,10 @@ namespace HPF_eComm_Demo
         {
 
         }
+        protected void TextBoxResultDisplay_TextChanged(object sender, EventArgs e)
+        {
 
+        }
 
   
 
