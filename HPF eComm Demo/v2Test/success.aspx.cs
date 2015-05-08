@@ -11,7 +11,7 @@ namespace HPF_eComm_Demo.v2Test
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Transaction.TimerResultCall_Tick();
+           
 
         }
     }
