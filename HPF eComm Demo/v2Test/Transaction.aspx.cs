@@ -254,6 +254,8 @@ namespace HPF_eComm_Demo
                         xmlWriter.WriteString("TRUE");
                         xmlWriter.WriteEndElement();
 
+                        
+
                     }
                  
                 }
@@ -401,7 +403,7 @@ namespace HPF_eComm_Demo
 
                         if (reason == callType.result)
                         {
-                            if (responseCode == "005")
+                            if (responseCode == "005" || responseCode == "000")
                             {
                                 while (xmlReader.ReadToFollowing("Alias"))
                                 {
@@ -1005,8 +1007,36 @@ namespace HPF_eComm_Demo
 
         }
 
-        protected void TextBoxResultDisplay_DataBinding(object sender, EventArgs e)
+        public void resultCallParse()
         {
+            string responseCode = null;
+
+            string cardAlias = null;
+            
+            string request = generateRequest(callType.result, TranType.ResultsCall);
+
+            string result = callGateway(request);
+
+            //Parse the OTK from the OTK request.
+            responseCode = parseXML(result, callType.result);
+
+            cardAlias = parseAlias(result, callType.result);
+            /*if (responseCode == "000")
+            {
+                redirect(true);
+            }
+            */
+            TextBoxResultDisplay.Text += responseCode.ToString() + Environment.NewLine;
+
+            if (cardAlias != null)
+            {
+                TextBoxResultDisplay.Visible = true;
+                TextBoxResultDisplay.Text = "Alias:" + Environment.NewLine;
+                TextBoxResultDisplay.Text += cardAlias.ToString() + Environment.NewLine;
+
+
+            }
+
 
         }
 

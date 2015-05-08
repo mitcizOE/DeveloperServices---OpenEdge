@@ -52,11 +52,7 @@
             .auto-style18 {
                 height: 26px;
             }
-            .auto-style19 {
-                width: 313px;
-                height: 26px;
-            }
-        </style>
+            </style>
 	</head>
 	<body>
 		<form id="demoForm" runat="server">
@@ -186,7 +182,7 @@
                     Interval="10000"></asp:Timer>
             <asp:UpdatePanel ID="UpdatePanelResult" runat="server" UpdateMode="Conditional">
                 <ContentTemplate>
-                    <br />
+                    Results Call:<br />
                     <asp:TextBox ID="TextBoxResultDisplay" runat="server" Height="116px" 
                         ReadOnly="True" Width="191px" TextMode="MultiLine" Font-Size="Large" OnDataBinding="TextBoxResultDisplay_DataBinding"></asp:TextBox>
                 </ContentTemplate>
