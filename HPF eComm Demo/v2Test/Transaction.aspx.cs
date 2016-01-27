@@ -78,7 +78,7 @@ namespace HPF_eComm_Demo
                         xmlWriter.WriteEndElement();
 
                         xmlWriter.WriteStartElement("SuccessURL");
-                        xmlWriter.WriteString("testhpf.apphb.com/v2test/transaction.aspx");
+                        xmlWriter.WriteString("http://testhpf.apphb.com/v2test/transaction.aspx");
                         xmlWriter.WriteEndElement();
                     }
                     //Credit EMV Creds (PG)
