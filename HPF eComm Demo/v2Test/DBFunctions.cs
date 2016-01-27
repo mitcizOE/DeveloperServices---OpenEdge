@@ -46,10 +46,9 @@ namespace DB
             var rawTextPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, Path.Combine("LoggingUtilities", "Raw Results.txt"));
             string rawPath = rawTextPath.ToString();
             File.AppendAllText(rawPath, resultXML);
+            File.AppendAllText(rawPath, Environment.NewLine);
 
             
-
-
             bool AliasTransaction = false;
             bool OtKTransaction = false;
             bool Approval = false;

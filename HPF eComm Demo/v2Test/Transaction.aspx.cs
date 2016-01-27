@@ -75,6 +75,10 @@ namespace HPF_eComm_Demo
                         xmlWriter.WriteStartElement("Industry");
                         xmlWriter.WriteString("RETAIL");
                         xmlWriter.WriteEndElement();
+
+                        xmlWriter.WriteStartElement("SuccessURL");
+                        xmlWriter.WriteString("https://www.google.com");
+                        xmlWriter.WriteEndElement();
                     }
                     //Credit EMV Creds (PG)
                     if (type == TranType.CreditEMV || type == TranType.CreditEMVReturn)

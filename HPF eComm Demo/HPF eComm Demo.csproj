@@ -163,6 +163,7 @@
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="v2Test\BatchReport.cs" />
     <Compile Include="v2Test\DBFunctions.cs" />
     <Compile Include="v2Test\success.aspx.cs">
       <DependentUpon>success.aspx</DependentUpon>
