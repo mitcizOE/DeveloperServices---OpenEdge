@@ -78,7 +78,7 @@ namespace HPF_eComm_Demo
                         xmlWriter.WriteEndElement();
 
                         xmlWriter.WriteStartElement("SuccessURL");
-                        xmlWriter.WriteString("http://testhpf.apphb.com/v2test/transaction.aspx");
+                        xmlWriter.WriteString("https://consignpro.com/m/validate.php?mode=validate_payment");
                         xmlWriter.WriteEndElement();
                     }
                     //Credit EMV Creds (PG)
@@ -252,7 +252,7 @@ namespace HPF_eComm_Demo
                         }
 
                         xmlWriter.WriteStartElement("Amount");
-                        xmlWriter.WriteString("1.00");
+                        xmlWriter.WriteString(".01");
                         xmlWriter.WriteEndElement();
 
                         xmlWriter.WriteStartElement("AmountLocked");
