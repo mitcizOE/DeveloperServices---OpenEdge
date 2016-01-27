@@ -64,12 +64,12 @@ namespace HPF_eComm_Demo
                         xmlWriter.WriteEndElement();
 
                         xmlWriter.WriteStartElement("TerminalID");
-                        xmlWriter.WriteString("80022706");
+                        xmlWriter.WriteString("80023342");
                         xmlWriter.WriteEndElement();
 
                         //
                         xmlWriter.WriteStartElement("AuthKey");
-                        xmlWriter.WriteString("zWCvjz8pZcy10t5QWHsex7jRhwl992jd");
+                        xmlWriter.WriteString("Qqkg3Pv1F0hNzG0qfs7CZugoBBcUPgUV");
                         xmlWriter.WriteEndElement();
                         //End XWeb credentials
 
