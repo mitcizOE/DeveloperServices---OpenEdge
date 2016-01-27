@@ -78,7 +78,7 @@ namespace HPF_eComm_Demo
                         xmlWriter.WriteEndElement();
 
                         xmlWriter.WriteStartElement("SuccessURL");
-                        xmlWriter.WriteString("https://www.google.com");
+                        xmlWriter.WriteString("http://www.google.com");
                         xmlWriter.WriteEndElement();
                     }
                     //Credit EMV Creds (PG)
