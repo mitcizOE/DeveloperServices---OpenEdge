@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<form name="OpenEdge Host Pay Transaction" action="https://ws.test.paygateway.com/HostPayService/v1/hostpay/paypage/" method="POST">
+		Entry Mode: <form action="Select Entry Mode">
+	<select name="entry_mode">
+		<option value="AUTO">AUTO</option>
+		<option value="HID">HID</option>
+		<option value="EMV">EMV</option>
+		<option value="SWIPED">SWIPED</option>
+		<option value="KEYED">KEYED</option>
+	</select><br><br>
+	<input type="text" name="transaction_type" value ="CREDIT_CARD" hidden="true">
+	<input type="text" name="account_token" value="738EF18DCE6C540D3681EEFA8056AA62C8C0249E43B4CBFBE8A04C2185DC5FEA9C54BB5E9FF86627E2" hidden="true">
+	Charge Type: <form action="Select Charge Type">
+	<select name="charge_type">
+		<option value="SALE">SALE</option>
+		<option value="AUTH">AUTH</option>
+		<option value="CAPTURE">CAPTURE</option>
+		<option value="CREDIT">CREDIT</option>
+		<option value="VOID">VOID</option>
+		<option value="PURCHASE">PURCHASE</option>
+		<option value="REFUND">REFUND</option>
+		<option value="QUERY_PAYMENT">QUERY_PAYMENT</option>
+		<option value="QUERY_PURCHASE">QUERY_PURCHASE</option>
+		<option value="DELETE_CUSTOMER">DELETE_CUSTOMER</option>
+		<option value="BALANCE_INQUIRY">BALANCE_INQUIRY</option>
+	</select><br><br>
+	Order ID:<input type="text" name="order_id" value=""><br><br>
+	Account Type: <form action="Select Charge Type">
+	Charge Total: <input type="text" name="charge_total" value="1.10"><br><br>
+	Billing Address: <input type="text" name="bill_address_one" value="2436 W 700 S"><br><br>
+	Billing Zip Code: <input type="text" name="bill_postal_code" value="84062"><br><br>
+	Billing Zip Code Mandatory: <input type="text" name="bill_postal_code_mandatory" value="true"><br><br>
+	<input type="submit" value="Open Payment Form">
+</form>
+
+</body>
+</html>
