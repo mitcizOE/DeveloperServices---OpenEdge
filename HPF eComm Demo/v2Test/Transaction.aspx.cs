@@ -76,10 +76,6 @@ namespace HPF_eComm_Demo
                         xmlWriter.WriteStartElement("Industry");
                         xmlWriter.WriteString("RETAIL");
                         xmlWriter.WriteEndElement();
-
-                        xmlWriter.WriteStartElement("SuccessURL");
-                        xmlWriter.WriteString("https://consignpro.com/m/validate.php?mode=validate_payment");
-                        xmlWriter.WriteEndElement();
                     }
                     //Credit EMV Creds (PG)
                     if (type == TranType.CreditEMV || type == TranType.CreditEMVReturn)
