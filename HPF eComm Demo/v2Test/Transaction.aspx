@@ -161,7 +161,8 @@
 				<table dir="ltr" style="width:100%;">
                     <tr>
                         <td class="auto-style6" style="width: 37%">
-				<iframe id="xwebIFrame" runat="server" scrolling="yes" style="border-style: hidden; height: 575px;"></iframe>
+
+                            <iframe id="newFrame" runat="server" style="border-style: hidden; height: 575px;"></iframe>
 			            </td>
                         <td>
                             <asp:Panel ID="XMLPanel" runat="server">

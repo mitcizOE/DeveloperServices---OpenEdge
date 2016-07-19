@@ -444,7 +444,7 @@ namespace HPF_eComm_Demo
                 if (!String.IsNullOrEmpty(otk))
                 {
                     //Display the Hosted Payment Form within an iFrame on your page.
-                    xwebIFrame.Attributes.Add("src", hpfURL + "?otk=" + otk);
+                    newFrame.Attributes.Add("src", hpfURL + "?otk=" + otk);
                 }
             }*/
         }
@@ -496,7 +496,7 @@ namespace HPF_eComm_Demo
             //Clearing all the things
             string request = "";
             string result = "";
-            xwebIFrame.Attributes.Add("src", "about.blank");
+            newFrame.Attributes.Add("src", "about.blank");
 
             
 
@@ -536,7 +536,7 @@ namespace HPF_eComm_Demo
             if (!String.IsNullOrEmpty(otk))
             {
                 //Display the Hosted Payment Form within an iFrame on your page.
-                xwebIFrame.Attributes.Add("src", hpfURL + "?otk=" + otk);
+                newFrame.Attributes.Add("src", hpfURL + "?otk=" + otk);
             }
 
 
@@ -547,7 +547,7 @@ namespace HPF_eComm_Demo
             //Clearing all the things
             string request = "";
             string result = "";
-            xwebIFrame.Attributes.Add("src", "about.blank");
+            newFrame.Attributes.Add("src", "about.blank");
 
             //Hardcoded Credit XWeb ID for Results Calls (Custom Creds NYI!)
             currentXWebID = "800000001844";
@@ -584,7 +584,7 @@ namespace HPF_eComm_Demo
             if (!String.IsNullOrEmpty(otk))
             {
                 //Display the Hosted Payment Form within an iFrame on your page.
-                xwebIFrame.Attributes.Add("src", hpfURL + "?otk=" + otk);
+                newFrame.Attributes.Add("src", hpfURL + "?otk=" + otk);
             }
         }
 
@@ -593,7 +593,7 @@ namespace HPF_eComm_Demo
             //Clearing all the things
             string request = "";
             string result = "";
-            xwebIFrame.Attributes.Add("src", "about.blank");
+            newFrame.Attributes.Add("src", "about.blank");
 
             //Hardcoded Debit XWeb ID for Results Calls (Custom Creds NYI!)
             currentXWebID = "800000001694";
@@ -630,7 +630,7 @@ namespace HPF_eComm_Demo
             if (!String.IsNullOrEmpty(otk))
             {
                 //Display the Hosted Payment Form within an iFrame on your page.
-                xwebIFrame.Attributes.Add("src", hpfURL + "?otk=" + otk);
+                newFrame.Attributes.Add("src", hpfURL + "?otk=" + otk);
             }
         }
 
@@ -639,7 +639,7 @@ namespace HPF_eComm_Demo
             //Clearing all the things
             string request = "";
             string result = "";
-            xwebIFrame.Attributes.Add("src", "about.blank");
+            newFrame.Attributes.Add("src", "about.blank");
 
             //Hardcoded Debit XWeb ID for Results Calls (Custom Creds NYI!)
             currentXWebID = "800000001694";
@@ -676,7 +676,7 @@ namespace HPF_eComm_Demo
             if (!String.IsNullOrEmpty(otk))
             {
                 //Display the Hosted Payment Form within an iFrame on your page.
-                xwebIFrame.Attributes.Add("src", hpfURL + "?otk=" + otk);
+                newFrame.Attributes.Add("src", hpfURL + "?otk=" + otk);
             }
         }
 
@@ -685,7 +685,7 @@ namespace HPF_eComm_Demo
             //Clearing all the things
             string request = "";
             string result = "";
-            xwebIFrame.Attributes.Add("src", "about.blank");
+            newFrame.Attributes.Add("src", "about.blank");
 
             //Hardcoded Credit XWeb ID for Results Calls (Custom Creds NYI!)
             currentXWebID = "800000001844";
@@ -722,7 +722,7 @@ namespace HPF_eComm_Demo
             if (!String.IsNullOrEmpty(otk))
             {
                 //Display the Hosted Payment Form within an iFrame on your page.
-                xwebIFrame.Attributes.Add("src", hpfURL + "?otk=" + otk);
+                newFrame.Attributes.Add("src", hpfURL + "?otk=" + otk);
             }
         }
 
@@ -731,7 +731,7 @@ namespace HPF_eComm_Demo
             //Clearing all the things
             string request = "";
             string result = "";
-            xwebIFrame.Attributes.Add("src", "about.blank");
+            newFrame.Attributes.Add("src", "about.blank");
 
             //Hardcoded Check XWeb ID for Results Calls (Custom Creds NYI!)
             currentXWebID = "800000001844";
@@ -782,7 +782,7 @@ namespace HPF_eComm_Demo
             if (!String.IsNullOrEmpty(otk))
             {
                 //Display the Hosted Payment Form within an iFrame on your page.
-                xwebIFrame.Attributes.Add("src", hpfURL + "?otk=" + otk);
+                newFrame.Attributes.Add("src", hpfURL + "?otk=" + otk);
             }
         }
 
@@ -791,7 +791,7 @@ namespace HPF_eComm_Demo
             //Clearing all the things
             string request = "";
             string result = "";
-            xwebIFrame.Attributes.Add("src", "about.blank");
+            newFrame.Attributes.Add("src", "about.blank");
 
             //Hardcoded Check XWeb ID for Results Calls (Custom Creds NYI!)
             currentXWebID = "800000001844";
@@ -828,7 +828,7 @@ namespace HPF_eComm_Demo
             if (!String.IsNullOrEmpty(otk))
             {
                 //Display the Hosted Payment Form within an iFrame on your page.
-                xwebIFrame.Attributes.Add("src", hpfURL + "?otk=" + otk);
+                newFrame.Attributes.Add("src", hpfURL + "?otk=" + otk);
             }
         }
 
@@ -837,7 +837,7 @@ namespace HPF_eComm_Demo
             //Clearing all the things
             string request = "";
             string result = "";
-            xwebIFrame.Attributes.Add("src", "about.blank");
+            newFrame.Attributes.Add("src", "about.blank");
 
             //Hardcoded Check XWeb ID for Results Calls (Custom Creds NYI!)
             currentXWebID = "800000001844";
@@ -874,7 +874,7 @@ namespace HPF_eComm_Demo
             if (!String.IsNullOrEmpty(otk))
             {
                 //Display the Hosted Payment Form within an iFrame on your page.
-                xwebIFrame.Attributes.Add("src", hpfURL + "?otk=" + otk);
+                newFrame.Attributes.Add("src", hpfURL + "?otk=" + otk);
             }
         }
 
@@ -883,7 +883,7 @@ namespace HPF_eComm_Demo
             //Clearing all the things
             string request = "";
             string result = "";
-            xwebIFrame.Attributes.Add("src", "about.blank");
+            newFrame.Attributes.Add("src", "about.blank");
 
             //Hardcoded Credit EMV XWeb ID for Results Calls (Custom Creds NYI!)
             currentXWebID = "800000001694";
@@ -920,7 +920,7 @@ namespace HPF_eComm_Demo
             if (!String.IsNullOrEmpty(otk))
             {
                 //Display the Hosted Payment Form within an iFrame on your page.
-                xwebIFrame.Attributes.Add("src", hpfURL + "?otk=" + otk);
+                newFrame.Attributes.Add("src", hpfURL + "?otk=" + otk);
             }
         }
 
@@ -929,7 +929,7 @@ namespace HPF_eComm_Demo
             //Clearing all the things
             string request = "";
             string result = "";
-            xwebIFrame.Attributes.Add("src", "about.blank");
+            newFrame.Attributes.Add("src", "about.blank");
 
             //Hardcoded Credit EMV XWeb ID for Results Calls (Custom Creds NYI!)
             currentXWebID = "800000001694";
@@ -966,7 +966,7 @@ namespace HPF_eComm_Demo
             if (!String.IsNullOrEmpty(otk))
             {
                 //Display the Hosted Payment Form within an iFrame on your page.
-                xwebIFrame.Attributes.Add("src", hpfURL + "?otk=" + otk);
+                newFrame.Attributes.Add("src", hpfURL + "?otk=" + otk);
             }
         }
 
