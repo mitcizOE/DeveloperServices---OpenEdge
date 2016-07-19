@@ -24,7 +24,7 @@
             vertical-align: top;
         }
         .auto-style2 {
-            height: 374px;
+            height: 528px;
         }
     </style>
 </head>
