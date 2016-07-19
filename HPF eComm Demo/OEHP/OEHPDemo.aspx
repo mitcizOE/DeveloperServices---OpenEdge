@@ -18,6 +18,15 @@
        //-->
     </script>
     <title></title>
+    <style type="text/css">
+        .auto-style1 {
+            width: 185px;
+            vertical-align: top;
+        }
+        .auto-style2 {
+            height: 374px;
+        }
+    </style>
 </head>
 <body>
     
@@ -26,31 +35,45 @@
     <form id="form1" runat="server">
         <div>
 
-            Customer Type:<br />
+            <br />
+
+            <br />
+            <table style="width:100%;">
+                <tr>
+                    <td class="auto-style1">Customer Type:<br />
             <asp:DropDownList ID="CustomerTypeDropDown" runat="server">
-                <asp:ListItem Text="Walk In" Value="EMV" />
+                <asp:ListItem Text="Walk In" Value="AUTO" />
                 <asp:ListItem Text="Phone" Value="KEYED" />
             </asp:DropDownList>
             <br />
             Charge Type:<br />
             <asp:DropDownList ID="ChargeTypeDropDown" runat="server">
-                <asp:ListItem Text="SALE" Value="SALE" />
-                <asp:ListItem Text="REFUND" Value="CREDIT" />
+                <asp:ListItem Text="Sale" Value="SALE" />
+                <asp:ListItem Text="Refund" Value="CREDIT" />
             </asp:DropDownList>
             <br />
             Amount:<br />
             <asp:TextBox ID="AmountBox" runat="server" OnTextChanged="AmountBox_TextChanged" Width="80px"></asp:TextBox>
             <br />
+            <br />
 
-            <asp:Button ID="SubmitButton" runat="server" BackColor="Blue" BorderStyle="None" Font-Bold="True" ForeColor="White" Height="37px" OnClick="SubmitButton_Click" Text="Submit" Width="73px" />
+            <asp:Button ID="SubmitButton" runat="server" BackColor="#0044772" BorderStyle="None" Font-Bold="True" ForeColor="White" Height="37px" OnClick="SubmitButton_Click" Text="Enter Card Information" Width="160px" BorderWidth="5px" />
 
+                        <br />
+
+                    </td>
+                    <td style="vertical-align: top;">
+                    </tr>
+            </table>
             <br />
 
         </div>
     <div>
         <asp:scriptmanager ID="defaultScriptManager" runat="server"></asp:scriptmanager>
-        <iframe id="oehpIFrame" runat="server" scrolling="no" style="border-style: hidden; height: 600px;"/>
+        <iframe id="oehpIFrame" runat="server" scrolling="no" style="border-style: hidden; " class="auto-style2"/> </td>
+        
     </div>
     </form>
 </body>
 </html>
+<%--  --%>

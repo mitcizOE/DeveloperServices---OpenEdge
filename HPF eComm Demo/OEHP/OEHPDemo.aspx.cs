@@ -34,11 +34,17 @@ namespace HostPayFunctions
 
         protected void AmountBox_TextChanged(object sender, EventArgs e)
         {
-            //if (!Regex.IsMatch(AmountBox.Text, @"[0-9]+(\.[0-9][0-9]?)?")) AmountBox.BackColor = System.Drawing.Color.Red;
+            if (!Regex.IsMatch(AmountBox.Text, @"[0-9]+(\.[0-9][0-9]?)?"))
+            {
+                AmountBox.BackColor = System.Drawing.Color.Red;
+            }
+
 
             decimal value;
             if (!decimal.TryParse(AmountBox.Text, out value))
+            {
                 AmountBox.BackColor = System.Drawing.Color.Red;
+            }
         }
         
     }
