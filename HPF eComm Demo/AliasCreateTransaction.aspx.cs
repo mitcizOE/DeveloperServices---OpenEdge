@@ -230,7 +230,7 @@ namespace HPF_eComm_Demo
                 if (!String.IsNullOrEmpty(otk))
                 {
                     //Display the Hosted Payment Form within an iFrame on your page.
-                    xwebIFrame.Attributes.Add("src", hpfURL + "?otk=" + otk);
+                    newFrame.Attributes.Add("src", hpfURL + "?otk=" + otk);
                 }
             }
         }

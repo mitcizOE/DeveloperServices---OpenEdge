@@ -7,7 +7,7 @@
 		<title></title>
 		<link href="defaultStylesheet.css" rel="stylesheet" type="text/css" />
 	    <style type="text/css">
-            #xwebIFrame
+            #newFrame
             {
                 width: 100%;
                 }
