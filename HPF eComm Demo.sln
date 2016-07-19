@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HPF eComm Demo", "HPF eComm Demo\HPF eComm Demo.csproj", "{FF6BAAE6-7CDA-4265-8C1C-75011007E93C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OEHP.NET", "..\..\..\..\Visual Studio 2015\Projects\OEHP.NET\OEHP.NET\OEHP.NET.csproj", "{0494D172-669E-4A8E-8D89-D91D9E5B503B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{FF6BAAE6-7CDA-4265-8C1C-75011007E93C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF6BAAE6-7CDA-4265-8C1C-75011007E93C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF6BAAE6-7CDA-4265-8C1C-75011007E93C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0494D172-669E-4A8E-8D89-D91D9E5B503B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0494D172-669E-4A8E-8D89-D91D9E5B503B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0494D172-669E-4A8E-8D89-D91D9E5B503B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0494D172-669E-4A8E-8D89-D91D9E5B503B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
