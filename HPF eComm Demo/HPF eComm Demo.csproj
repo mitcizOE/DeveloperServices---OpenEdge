@@ -91,6 +91,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="OEHP\OEHP.html" />
+    <Content Include="OEHP\OEHP.NET.dll" />
     <Content Include="OEHP\OEHPDemo.aspx" />
     <Content Include="success.aspx" />
     <Content Include="AliasCreateTransaction.aspx" />
