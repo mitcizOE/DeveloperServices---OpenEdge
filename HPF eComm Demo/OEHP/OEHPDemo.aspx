@@ -4,6 +4,19 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+    <script lang="Javascript">
+       <!--
+       function isNumberKey(evt)
+       {
+          var charCode = (evt.which) ? evt.which : event.keyCode
+          if (charCode != 46 && charCode > 31 
+            && (charCode < 48 || charCode > 57))
+             return false;
+ 
+          return true;
+       }
+       //-->
+    </script>
     <title></title>
 </head>
 <body>
@@ -13,7 +26,25 @@
     <form id="form1" runat="server">
         <div>
 
-            <asp:Button ID="SaleButton" runat="server" BackColor="Blue" BorderStyle="None" Font-Bold="True" ForeColor="White" Height="37px" OnClick="SaleButton_Click" Text="Sale" Width="73px" />
+            Customer Type:<br />
+            <asp:DropDownList ID="CustomerTypeDropDown" runat="server">
+                <asp:ListItem Text="Walk In" Value="EMV" />
+                <asp:ListItem Text="Phone" Value="KEYED" />
+            </asp:DropDownList>
+            <br />
+            Charge Type:<br />
+            <asp:DropDownList ID="ChargeTypeDropDown" runat="server">
+                <asp:ListItem Text="SALE" Value="SALE" />
+                <asp:ListItem Text="REFUND" Value="CREDIT" />
+            </asp:DropDownList>
+            <br />
+            Amount:<br />
+            <asp:TextBox ID="AmountBox" runat="server" OnTextChanged="AmountBox_TextChanged" Width="80px"></asp:TextBox>
+            <br />
+
+            <asp:Button ID="SubmitButton" runat="server" BackColor="Blue" BorderStyle="None" Font-Bold="True" ForeColor="White" Height="37px" OnClick="SubmitButton_Click" Text="Submit" Width="73px" />
+
+            <br />
 
         </div>
     <div>
