@@ -18,7 +18,7 @@
 		<form id="demoForm" runat="server">
 			<asp:scriptmanager ID="defaultScriptManager" runat="server"></asp:scriptmanager>
 			<div>
-				<iframe id="newFrame" runat="server" scrolling="yes" style="border-style: hidden"></iframe>
+				//<%--<iframe id="newFrame" runat="server" scrolling="yes" style="border-style: hidden"></iframe>--%>
 			</div>
             <div style="height: 163px">
             <asp:Timer ID="TimerResultCall" OnTick="TimerResultCall_Tick" runat="server" 
