@@ -44,6 +44,7 @@
             <asp:DropDownList ID="CustomerTypeDropDown" runat="server">
                 <asp:ListItem Text="Walk In" Value="AUTO" />
                 <asp:ListItem Text="Phone" Value="KEYED" />
+                <asp:ListItem Text="EMV" Value="EMV" />
             </asp:DropDownList>
             <br />
             Charge Type:<br />
