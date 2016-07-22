@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="OEHPDemoAS.aspx.cs" Inherits="HostPayFunctions.OEHPDemo" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="OEHPDemoAS.aspx.cs" Inherits="HostPayFunctions.OEHPDemoAS" %>
 
 <!DOCTYPE html>
 
@@ -30,7 +30,7 @@
 </head>
 <body>
     
-<img src="-"
+<img src="https://www1.appliedsystems.com/images/headerlogo.png" alt="appliedsystems.com"/><br/><br/>
     <form id="form1" runat="server">
         <div>
 

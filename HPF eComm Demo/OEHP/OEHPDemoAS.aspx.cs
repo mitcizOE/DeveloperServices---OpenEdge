@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 
 namespace HostPayFunctions
 {
-    public partial class OEHPDemo : System.Web.UI.Page
+    public partial class OEHPDemoAS : System.Web.UI.Page
     {
 
         protected void Page_Load(object sender, EventArgs e)

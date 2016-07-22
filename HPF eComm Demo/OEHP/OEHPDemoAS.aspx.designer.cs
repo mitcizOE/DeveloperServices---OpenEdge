@@ -10,7 +10,7 @@
 namespace HostPayFunctions {
     
     
-    public partial class OEHPDemo {
+    public partial class OEHPDemoAS {
         
         /// <summary>
         /// form1 control.
