@@ -88,7 +88,6 @@
     <Content Include="OEHP\OEHPDemoNetSmart.aspx" />
     <Content Include="OEHP\OEHPDemoAS.aspx" />
     <Content Include="OEHP\OEHPDemo.aspx" />
-    <Content Include="OEHP\Postback.aspx" />
     <Content Include="success.aspx" />
     <Content Include="LoggingUtilities\GatewayResponse.xml">
       <SubType>Designer</SubType>
@@ -119,13 +118,6 @@
     </Compile>
     <Compile Include="OEHP\OEHPDemo.aspx.designer.cs">
       <DependentUpon>OEHPDemo.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="OEHP\Postback.aspx.cs">
-      <DependentUpon>Postback.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="OEHP\Postback.aspx.designer.cs">
-      <DependentUpon>Postback.aspx</DependentUpon>
     </Compile>
     <Compile Include="OEHP\TransactionRequest.cs" />
     <Compile Include="OEHP\DemoVariables.cs" />
