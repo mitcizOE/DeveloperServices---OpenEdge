@@ -71,7 +71,7 @@
         </div>
     <div>
         <asp:scriptmanager ID="defaultScriptManager" runat="server"></asp:scriptmanager>
-        <iframe id="oehpIFrame" runat="server" scrolling="no" style="border-style: hidden; " class="auto-style2"/> </td>
+        <iframe id="oehpIFrame" runat="server" scrolling="no" style="border-style: hidden; " class="auto-style2" on/> </td>
         
     </div>
     </form>
