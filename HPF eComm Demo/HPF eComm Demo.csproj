@@ -85,6 +85,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="OEHP\OEHP.html" />
+    <Content Include="OEHP\OEHPDemoiMIS.aspx" />
     <Content Include="OEHP\OEHPDemoNetSmart.aspx" />
     <Content Include="OEHP\OEHPDemoAS.aspx" />
     <Content Include="OEHP\OEHPDemo.aspx" />
@@ -98,6 +99,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="OEHP\GatewayRequest.cs" />
+    <Compile Include="OEHP\OEHPDemoiMIS.aspx.cs">
+      <DependentUpon>OEHPDemoiMIS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OEHP\OEHPDemoiMIS.aspx.designer.cs">
+      <DependentUpon>OEHPDemoiMIS.aspx</DependentUpon>
+    </Compile>
     <Compile Include="OEHP\OEHPDemoNetSmart.aspx.cs">
       <DependentUpon>OEHPDemoNetSmart.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
