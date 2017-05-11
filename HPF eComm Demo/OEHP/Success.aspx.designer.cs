@@ -28,7 +28,7 @@ namespace HPF_eComm_Demo.OEHP {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label TransactionStatus;
+        protected global::System.Web.UI.WebControls.TextBox TransactionStatus;
         
         /// <summary>
         /// ScriptManager1 control.
