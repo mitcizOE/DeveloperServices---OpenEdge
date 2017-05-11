@@ -9,7 +9,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:TextBox ID="TransactionStatus" runat="server" BorderStyle="None" Height="114px" ReadOnly="True" Rows="5" TextMode="MultiLine" Width="695px"></asp:TextBox>
+            <asp:TextBox ID="TransactionStatus" runat="server" BorderStyle="None" Height="114px" ReadOnly="True" Rows="5" TextMode="MultiLine" Width="342px"></asp:TextBox>
         </div>
         <asp:ScriptManager ID="ScriptManager1" runat="server">
         </asp:ScriptManager>

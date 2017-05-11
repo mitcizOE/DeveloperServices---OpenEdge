@@ -55,7 +55,7 @@
                         <br />
             <br />
 
-            <asp:Button ID="SubmitButton" runat="server" BackColor="#0044772" BorderStyle="None" Font-Bold="True" ForeColor="goldenrod" Height="37px" OnClick="SubmitButton_Click" Text="Enter Card Information" Width="160px" BorderWidth="5px" />
+            <asp:Button ID="SubmitButton" runat="server" BackColor="Gray" BorderStyle="None" Font-Bold="True" ForeColor="goldenrod" Height="37px" OnClick="SubmitButton_Click" Text="Enter Card Information" Width="160px" BorderWidth="5px" />
 
                         <br />
 
