@@ -22,7 +22,7 @@ namespace HostPayFunctions
             {
                 TransactionRequest tr = new TransactionRequest();
                 GatewayRequest gr = new GatewayRequest();
-                string otk = gr.TestPayPagePost(tr.CreditCardParamBuilder(DemoVariables.AccountToken, "CREDIT_CARD", ChargeTypeDropDown.SelectedValue, CustomerTypeDropDown.SelectedValue, tr.OrderIDRandom(8), AmountBox.Text, DemoVariables.CustomKeyPairs));
+                string otk = gr.TestPayPagePost(tr.CreditCardParamBuilder(DemoVariables.AccountToken, "CREDIT_CARD", "SALE", "KEYED", tr.OrderIDRandom(8), AmountBox.Text, DemoVariables.CustomKeyPairs));
                 oehpIFrame.Attributes.Add("src", otk);
 
             }
@@ -46,7 +46,11 @@ namespace HostPayFunctions
                 AmountBox.BackColor = System.Drawing.Color.Red;
             }
         }
-        
+
+        protected void CustomerTypeDropDown_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 
     

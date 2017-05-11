@@ -22,24 +22,6 @@ namespace HostPayFunctions {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// CustomerTypeDropDown control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList CustomerTypeDropDown;
-        
-        /// <summary>
-        /// ChargeTypeDropDown control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ChargeTypeDropDown;
-        
-        /// <summary>
         /// AmountBox control.
         /// </summary>
         /// <remarks>
@@ -47,6 +29,15 @@ namespace HostPayFunctions {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox AmountBox;
+        
+        /// <summary>
+        /// ServiceNumberBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ServiceNumberBox;
         
         /// <summary>
         /// SubmitButton control.

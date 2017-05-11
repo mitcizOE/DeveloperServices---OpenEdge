@@ -84,12 +84,14 @@
     <Content Include="LoggingUtilities\TokenDB.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="OEHP\evosuslogo.png" />
     <Content Include="OEHP\OEHP.html" />
     <Content Include="OEHP\OEHPDemoiMIS.aspx" />
     <Content Include="OEHP\OEHPDemoChiroSpring.aspx" />
     <Content Include="OEHP\OEHPDemoNetSmart.aspx" />
     <Content Include="OEHP\OEHPDemoAS.aspx" />
     <Content Include="OEHP\OEHPDemo.aspx" />
+    <Content Include="OEHP\Success.aspx" />
     <Content Include="success.aspx" />
     <Content Include="LoggingUtilities\GatewayResponse.xml">
       <SubType>Designer</SubType>
@@ -134,6 +136,13 @@
     </Compile>
     <Compile Include="OEHP\OEHPDemo.aspx.designer.cs">
       <DependentUpon>OEHPDemo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OEHP\Success.aspx.cs">
+      <DependentUpon>Success.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OEHP\Success.aspx.designer.cs">
+      <DependentUpon>Success.aspx</DependentUpon>
     </Compile>
     <Compile Include="OEHP\TransactionRequest.cs" />
     <Compile Include="OEHP\DemoVariables.cs" />
