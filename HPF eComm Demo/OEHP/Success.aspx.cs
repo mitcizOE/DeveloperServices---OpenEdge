@@ -21,7 +21,7 @@ namespace HPF_eComm_Demo.OEHP
                 HostPayFunctions.GatewayRequest gr = new HostPayFunctions.GatewayRequest();
                 string result = gr.TestDirectPost(parameters);
                 NameValueCollection parsedResult = HttpUtility.ParseQueryString(result);
-                TransactionStatus.Text = "Your Payment Has Been Accepted, Authorization Code: " + parsedResult["bank_approval_code"];
+                TransactionStatus.Text = "Your Payment Has Been Accepted." + Environment.NewLine + "Service Invoice #: " + HostPayFunctions.DemoVariables.serviceInvoiceNumber + Environment.NewLine + "Authorization Code: " + parsedResult["bank_approval_code"];
             }
             else
             {

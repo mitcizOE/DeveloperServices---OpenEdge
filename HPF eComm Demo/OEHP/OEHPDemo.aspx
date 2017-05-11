@@ -51,10 +51,11 @@
             <asp:TextBox ID="AmountBox" runat="server" OnTextChanged="AmountBox_TextChanged" Width="80px"></asp:TextBox>
                         <br />
                         Service Invoice #:<br />
-                        <asp:TextBox ID="ServiceNumberBox" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="ServiceNumberBox" runat="server" OnTextChanged="ServiceNumberBox_TextChanged"></asp:TextBox>
+                        <br />
             <br />
 
-            <asp:Button ID="SubmitButton" runat="server" BackColor="#0044772" BorderStyle="None" Font-Bold="True" ForeColor="White" Height="37px" OnClick="SubmitButton_Click" Text="Enter Card Information" Width="160px" BorderWidth="5px" />
+            <asp:Button ID="SubmitButton" runat="server" BackColor="#0044772" BorderStyle="None" Font-Bold="True" ForeColor="Gray" Height="37px" OnClick="SubmitButton_Click" Text="Enter Card Information" Width="160px" BorderWidth="5px" />
 
                         <br />
 

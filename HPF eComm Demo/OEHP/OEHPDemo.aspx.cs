@@ -22,6 +22,7 @@ namespace HostPayFunctions
             {
                 TransactionRequest tr = new TransactionRequest();
                 GatewayRequest gr = new GatewayRequest();
+                DemoVariables.serviceInvoiceNumber = ServiceNumberBox.Text;
                 string otk = gr.TestPayPagePost(tr.CreditCardParamBuilder(DemoVariables.AccountToken, "CREDIT_CARD", "SALE", "KEYED", tr.OrderIDRandom(8), AmountBox.Text, DemoVariables.CustomKeyPairs));
                 oehpIFrame.Attributes.Add("src", otk);
 
@@ -50,6 +51,11 @@ namespace HostPayFunctions
         protected void CustomerTypeDropDown_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        protected void ServiceNumberBox_TextChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 
