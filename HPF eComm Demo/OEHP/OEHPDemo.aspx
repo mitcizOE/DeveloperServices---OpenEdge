@@ -33,7 +33,7 @@
 </head>
 <body>
     <div class="headerClass">
-        &nbsp;<img src="http://www.evosus.com/static/website/css/images/logo.png" class="auto-style3" />
+        &nbsp;<img src="https://www.openedgedeveloper.com/Portals/3/API/TeeOff-logo.png" class="auto-style3" />
     </div>
 
 
@@ -50,8 +50,9 @@
             Amount:<br />
             <asp:TextBox ID="AmountBox" runat="server" OnTextChanged="AmountBox_TextChanged" Width="80px"></asp:TextBox>
                         <br />
-                        Service Invoice #:<br />
-                        <asp:TextBox ID="ServiceNumberBox" runat="server" OnTextChanged="ServiceNumberBox_TextChanged"></asp:TextBox>
+                        <asp:Calendar ID="TeeTimeCalendar" runat="server"></asp:Calendar>
+                        <br />
+                        <asp:TextBox ID="ServiceNumberBox" runat="server" OnTextChanged="ServiceNumberBox_TextChanged" Visible="False"></asp:TextBox>
                         <br />
             <br />
 

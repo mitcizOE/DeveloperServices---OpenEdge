@@ -23,6 +23,7 @@ namespace HostPayFunctions
                 TransactionRequest tr = new TransactionRequest();
                 GatewayRequest gr = new GatewayRequest();
                 DemoVariables.serviceInvoiceNumber = ServiceNumberBox.Text;
+                DemoVariables.TeeTimeDate = TeeTimeCalendar.SelectedDate.ToShortDateString();
                 string otk = gr.TestPayPagePost(tr.CreditCardParamBuilder(DemoVariables.AccountToken, "CREDIT_CARD", "SALE", "KEYED", tr.OrderIDRandom(8), AmountBox.Text, DemoVariables.CustomKeyPairs));
                 oehpIFrame.Attributes.Add("src", otk);
 

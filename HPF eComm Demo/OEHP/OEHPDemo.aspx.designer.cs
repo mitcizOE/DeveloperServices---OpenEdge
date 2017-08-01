@@ -31,6 +31,15 @@ namespace HostPayFunctions {
         protected global::System.Web.UI.WebControls.TextBox AmountBox;
         
         /// <summary>
+        /// TeeTimeCalendar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Calendar TeeTimeCalendar;
+        
+        /// <summary>
         /// ServiceNumberBox control.
         /// </summary>
         /// <remarks>
