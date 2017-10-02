@@ -20,7 +20,7 @@
     <title></title>
     <style type="text/css">
         .auto-style1 {
-            width: 185px;
+            width: 436px;
             vertical-align: top;
         }
         .auto-style2 {
@@ -29,11 +29,15 @@
         .headerClass {
             background-color: grey;
         }
-    </style>
+        .auto-style3 {
+            height: 60px;
+            width: 264px;
+        }
+        </style>
 </head>
 <body>
     <div class="headerClass">
-        &nbsp;<img src="https://www.openedgedeveloper.com/Portals/3/API/TeeOff-logo.png" class="auto-style3" />
+        &nbsp;<img src="https://www.openedgedeveloper.com/Portals/3/ATest/bluepearl.jpg" class="auto-style3" />
     </div>
 
 
@@ -50,13 +54,12 @@
             Amount:<br />
             <asp:TextBox ID="AmountBox" runat="server" OnTextChanged="AmountBox_TextChanged" Width="80px"></asp:TextBox>
                         <br />
-                        <asp:Calendar ID="TeeTimeCalendar" runat="server"></asp:Calendar>
-                        <br />
-                        <asp:TextBox ID="ServiceNumberBox" runat="server" OnTextChanged="ServiceNumberBox_TextChanged" Visible="False"></asp:TextBox>
+                        Enter Invoice Number<br />
+                        <asp:TextBox ID="ServiceNumberBox" runat="server" OnTextChanged="ServiceNumberBox_TextChanged"></asp:TextBox>
                         <br />
             <br />
 
-            <asp:Button ID="SubmitButton" runat="server" BackColor="Gray" BorderStyle="None" Font-Bold="True" Height="37px" OnClick="SubmitButton_Click" Text="Enter Card Information" Width="160px" BorderWidth="5px" ForeColor="White" />
+            <asp:Button ID="SubmitButton" runat="server" BackColor="#0099FF" BorderStyle="None" Font-Bold="True" Height="37px" OnClick="SubmitButton_Click" Text="Enter Card Information" Width="160px" BorderWidth="5px" ForeColor="White" />
 
                         <br />
 
