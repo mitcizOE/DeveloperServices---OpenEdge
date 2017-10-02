@@ -27,7 +27,7 @@
             height: 528px;
         }
         .headerClass {
-            background-color: grey;
+            background-color: white;
         }
         .auto-style3 {
             height: 60px;
