@@ -21,7 +21,7 @@ namespace HPF_eComm_Demo.OEHP
                 HostPayFunctions.GatewayRequest gr = new HostPayFunctions.GatewayRequest();
                 string result = gr.TestDirectPost(parameters);
                 NameValueCollection parsedResult = HttpUtility.ParseQueryString(result);
-                TransactionStatus.Text = "Your Payment Has Been Accepted." + Environment.NewLine + "Invoice Number: " + parsedResult["user_defined_two"] + Environment.NewLine + "Authorization Code: " + parsedResult["bank_approval_code"] + Environment.NewLine + "Card Brand: " + parsedResult["card_brand"] + Environment.NewLine + "Card Number Ending: " + parsedResult["span"];
+                TransactionStatus.Text = "Your Payment Has Been Accepted." + Environment.NewLine + "Invoice Number: " + HostPayFunctions.DemoVariables.serviceInvoiceNumber + Environment.NewLine + "Authorization Code: " + parsedResult["bank_approval_code"] + Environment.NewLine + "Card Brand: " + parsedResult["card_brand"] + Environment.NewLine + "Card Number Ending: " + parsedResult["span"];
             }
             else
             {
