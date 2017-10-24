@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>
+		</title>
+		<script src="RCMIntegationSample.js"></script>
+		<script src="jquery-2.1.3.min.js"></script>
+	</head>
+<body>
+    <div>
+    
+        <span id="Label1">XWeb Auth Key:</span>
+        <br />
+        <input name="txtXWebAuthKey" type="text" id="txtXWebAuthKey" style="width:250px;" />
+        <br />
+        <br />
+        <span id="Label2">XWeb Terminal ID:</span>
+        <br />
+        <input name="txtXWebTerminalID" type="text" id="txtXWebTerminalID" style="width:250px;" />
+        <br />
+        <br />
+        <span id="Label3">XWeb ID:</span>
+        <br />
+        <input name="txtXWebID" type="text" id="txtXWebID" style="width:250px;" />
+        <br />
+        <br />
+        <input type="submit" OnClick="PinPadSetup()" name="btnPinPadSetup" value="PinPad Setup" id="btnPinPadSetup" style="width:160px;" />
+        <p />
+        <input type="submit" OnClick="PromptForSignature()" name="btnPromptForSignature" value="Prompt for Signature" id="btnPromptForSignature" style="width:160px;" />
+        <p />
+        <input type="submit" OnClick="CreditSale()" name="btnCreditSale" value="Credit Sale" id="btnCreditSale" style="width:160px;" />
+        <p />
+        <span id="Label4">Results:</span>
+        <br />
+        <textarea name="txtResults" rows="2" cols="20" id="txtResults" style="height:247px;width:671px;">
+		</textarea>
+    </div>
+</body>
+</html>

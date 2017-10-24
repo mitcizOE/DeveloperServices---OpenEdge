@@ -21,6 +21,7 @@
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
     <TargetFrameworkProfile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -78,6 +79,9 @@
     </Content>
     <Content Include="css\914.css" />
     <Content Include="dropdown2.css" />
+    <Content Include="EEC_JS\jquery-2.1.3.min.js" />
+    <Content Include="EEC_JS\RCMIntegationSample.html" />
+    <Content Include="EEC_JS\RCMIntegationSample.js" />
     <Content Include="HomeStyle.css" />
     <Content Include="index.html" />
     <Content Include="LoggingUtilities\Raw Results.txt" />
