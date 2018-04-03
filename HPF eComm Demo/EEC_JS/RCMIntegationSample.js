@@ -44,7 +44,11 @@ function CreditSale() {
 function SendRequest(paramString) {
 
 	DisplayResponse('');
-	
+
+    var ddl = document.getElementById("ddlResponseType");
+    var responseType = ddl.options[ddl.selectedIndex].value;
+    var datatype = ddl.options[ddl.selectedIndex].value.toLowerCase().indexOf('xml') > -1 ? 'xml' : 'jsonp';
+
 	try {
 		
 		$.ajax(
@@ -52,12 +56,12 @@ function SendRequest(paramString) {
 			type: "GET",
 			url: 'https://localsystem.paygateway.com:21113/RcmService.svc/Initialize',
 			data: 'xl2Parameters=' + paramString,
-			contentType: "application/json",
-			dataType: "jsonp",
+			contentType: responseType,
+			dataType: datatype,
 			crossDomain: true,
 			jsonpCallback: 'jsonpResponse',
 			cache: false,
-			beforeSend: function (xhr) { xhr.setRequestHeader('Access-Control-Allow-Origin', '*'); },
+			
 			statusCode:
 				{
 					404: function () {
@@ -78,18 +82,21 @@ function SendRequest(paramString) {
 
 	// Write the results to textarea
 	function DisplayResponse(result) {
-		if (result == null) {
-			$('#txtResults').val('No result received from device.');
-			return;
-		}
 
-		if (result.RcmResponse == null) {
-			$('#txtResults').val(result);
-			return;
+		if(result == null)
+		{
+            $('#txtResults').val('No result received from device.');
+            return;
 		}
-
-		$('#txtResults').val(result.RcmResponse);
-		
+		else if(result) {
+            if (ddl.options[ddl.selectedIndex].value.toLowerCase().indexOf('xml') > -1) {
+					var parseResult = new XMLSerializer().serializeToString(result.documentElement);
+					$('#txtResults').val(parseResult);
+            }
+            else {
+                $('#txtResults').val(JSON.stringify(result));
+            }
+        }
 	}
 	
 }
