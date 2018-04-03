@@ -14,6 +14,10 @@ namespace HostPayFunctions
     public class GatewayRequest : VariableHandler
     {
 
+        public GatewayRequest()
+        {
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+        }
         //Posts to TEST
         public string TestPayPagePost(string parameters) //Returns url that will render paypage.
         {

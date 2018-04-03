@@ -25,7 +25,9 @@ namespace HPF_eComm_Demo.OEHP
             }
             else
             {
-                TransactionStatus.Text = "Your payment has declined, please call" + Environment.NewLine + "your Pool Service Provider or re-attempt" + Environment.NewLine + "your transaction at a later time";
+                TransactionStatus.Text = "Your payment has declined" + Environment.NewLine + "please try again later." +
+                    Environment.NewLine + "Decline Reason: " +  Request.QueryString["response_code_text"] + 
+                    Environment.NewLine + "Response Code: "  + Request.QueryString["response_code"];
             }
 
         }
