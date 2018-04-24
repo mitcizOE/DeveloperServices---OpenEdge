@@ -5,7 +5,7 @@
 body {
     font-family: Verdana, Arial, Helvetica, sans-serif;
     font-size: 13px;
-    color:#333
+    color: #333
 }
 
 p {
@@ -27,7 +27,7 @@ p {
     border-style: none;
     border-color: inherit;
     border-width: 0px;
-height: 108px;
+    height: 108px;
     background: #FFFFFF;
     border-radius: 0px;
     margin: 0px;
@@ -75,17 +75,54 @@ height: 108px;
 }
 
 /* Left Gray Menu */
-.left-menu { width: 90%!important; padding: 5px 10px 10px 5px 10px !important; margin:10px auto 10px auto; }
-.left-menu h2 { color:#fff; font-weight:bold; font-size:32px; margin-bottom:20px; }
-.left-menu div {font-size:12px; padding:5px 0; }
-.left-menu div:hover { color:#4b8902;cursor:pointer;}
-.left-menu hr {border: 0;border-bottom: 1px solid #b3b3b3;margin: 5px 0;}
-.left-menu div.current:hover { cursor:pointer;}
-.left-menu .sub-menu {margin-left:15px;border-bottom:none;}
-.left-menu .current  {font-weight: bold;}
-.left-menu .menu-header {color: #00703C;font-size: 16px;font-weight: bold;}
-	.left-menu a {
-		text-decoration: none;
-	}
+.left-menu {
+    width: 90% !important;
+    padding: 5px 10px 10px 5px 10px !important;
+    margin: 10px auto 10px auto;
+}
 
+    .left-menu h2 {
+        color: #fff;
+        font-weight: bold;
+        font-size: 32px;
+        margin-bottom: 20px;
+    }
 
+    .left-menu div {
+        font-size: 12px;
+        padding: 5px 0;
+    }
+
+        .left-menu div:hover {
+            color: #4b8902;
+            cursor: pointer;
+        }
+
+    .left-menu hr {
+        border: 0;
+        border-bottom: 1px solid #b3b3b3;
+        margin: 5px 0;
+    }
+
+    .left-menu div.current:hover {
+        cursor: pointer;
+    }
+
+    .left-menu .sub-menu {
+        margin-left: 15px;
+        border-bottom: none;
+    }
+
+    .left-menu .current {
+        font-weight: bold;
+    }
+
+    .left-menu .menu-header {
+        color: #00703C;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .left-menu a {
+        text-decoration: none;
+    }

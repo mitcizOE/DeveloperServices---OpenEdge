@@ -1,0 +1,2 @@
+C:\Users\mitchell.cizmas\Source\Repos\DeveloperServices---OpenEdge\HPF eComm Demo\obj\Debug\HPF eComm Demo.csproj.CoreCompileInputs.cache
+C:\Users\mitchell.cizmas\Source\Repos\DeveloperServices---OpenEdge\HPF eComm Demo\obj\Debug\HPF eComm Demo.csprojResolveAssemblyReference.cache
